@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="description"
+        content="Retail Guide helps Vodafone Egypt retail employees with plans, calculators, TNPS tools and daily work utilities. Fully responsive business plans showcase.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://vf-guide.com/">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-65E77S47XB"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-65E77S47XB');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4721971253728612"
+        crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Source+Serif+Pro:wght@400;600&display=swap"
+        rel="stylesheet">
+    <title>Vodafone Business Plans | Retail Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0066cc;
+            --primary-dark: #004c99;
+            --accent: #ff6600;
+            --red: #d50000;
+            --dark: #1a1a1a;
+            --gray: #555;
+            --light-gray: #f8f9fc;
+            --light-bg: #eef2f7;
+            --card-bg: #ffffff;
+            --border: #d1dbe8;
+            --shadow-sm: 0 6px 14px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 16px 28px rgba(0, 0, 0, 0.1);
+            --transition: all 0.25s ease;
+        }
+
+        body {
+            background: var(--light-bg);
+            font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+            padding: 1rem;
+            color: var(--dark);
+            line-height: 1.4;
+        }
+
+        /* enhanced back button */
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: white;
+            padding: 10px 20px;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            color: var(--primary);
+            border: 1px solid var(--border);
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+            width: fit-content;
+        }
+
+        .back-button i {
+            font-size: 1rem;
+            transition: transform 0.2s;
+        }
+
+        .back-button:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            transform: translateX(-4px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .back-button:hover i {
+            transform: translateX(-3px);
+        }
+
+        .title {
+            text-align: center;
+            font-size: clamp(1.8rem, 6vw, 2.6rem);
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 1.2rem;
+            letter-spacing: -0.3px;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .title::after {
+            content: '';
+            display: block;
+            width: 70px;
+            height: 4px;
+            background: var(--accent);
+            margin: 12px auto 0;
+            border-radius: 4px;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 0.25rem;
+        }
+
+        .section-title {
+            font-size: clamp(1.5rem, 5vw, 1.9rem);
+            font-weight: 700;
+            margin: 2rem 0 1.2rem;
+            text-align: center;
+            color: var(--red);
+            background: rgba(213, 0, 0, 0.05);
+            display: inline-block;
+            width: auto;
+            padding: 0.4rem 1.8rem;
+            border-radius: 60px;
+            letter-spacing: -0.2px;
+            backdrop-filter: blur(2px);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        /* responsive card grid */
+        @media (min-width: 560px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1000px) {
+            .grid {
+                grid-template-columns: repeat(3, 1fr);
+                place-items: center;
+            }
+        }
+
+        /* bigger screens for 4 columns? keep readability at 3 */
+        @media (min-width: 1400px) {
+            .container {
+                max-width: 1400px;
+            }
+
+            .grid {
+                grid-template-columns: repeat(4, 1fr);
+                place-items: center;
+            }
+
+            .section-title {
+                margin-left: 0;
+                text-align: center;
+                display: block;
+                width: fit-content;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 24px;
+            border: 1px solid var(--border);
+            padding: 1.4rem 1.2rem 1.2rem;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            backdrop-filter: blur(0px);
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--primary);
+        }
+
+        .card-header {
+            font-size: 1.55rem;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.3px;
+            line-height: 1.2;
+        }
+
+        .plan-info {
+            font-size: 0.9rem;
+            background: #f0f4fa;
+            display: inline-block;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            color: var(--dark);
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            width: fit-content;
+        }
+
+        .plan-main {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin: 0.5rem 0 0.25rem;
+            line-height: 1.2;
+        }
+
+        .plan-price {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary);
+            background: #e6f0ff;
+            display: inline-block;
+            padding: 0.2rem 0.9rem;
+            border-radius: 40px;
+            margin: 0.5rem 0 0.75rem;
+        }
+
+        .features {
+            list-style: none;
+            padding-left: 0;
+            margin: 0.7rem 0 1rem;
+            font-size: 0.88rem;
+            flex: 1;
+        }
+
+        .features li {
+            margin-bottom: 0.55rem;
+            padding-left: 1.5rem;
+            position: relative;
+            line-height: 1.35;
+        }
+
+        .features li::before {
+            content: "✓";
+            color: var(--accent);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            font-size: 0.9rem;
+        }
+
+        .subs-icons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            gap: 10px;
+            margin-top: 0.8rem;
+            padding-top: 0.6rem;
+            border-top: 1px dashed var(--border);
+            align-items: center;
+        }
+
+        .subs-icons img {
+            width: 42px;
+            height: 42px;
+            object-fit: contain;
+            border-radius: 12px;
+            background: #fff;
+            padding: 4px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s;
+        }
+
+        .subs-icons img:hover {
+            transform: scale(1.08);
+        }
+
+        /* small adjustments */
+        @media (max-width: 480px) {
+            body {
+                padding: 0.8rem;
+            }
+
+            .card {
+                padding: 1rem;
+            }
+
+            .card-header {
+                font-size: 1.35rem;
+            }
+
+            .plan-main {
+                font-size: 1.35rem;
+            }
+
+            .subs-icons img {
+                width: 36px;
+                height: 36px;
+                align-content: center;
+            }
+
+            .features li {
+                font-size: 0.8rem;
+            }
+        }
+
+        /* keep back-button + container alignment */
+        .header-flex {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        /* Center images globally and center subscription icons */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .subs-icons {
+            justify-content: center;
+        }
+
+        .section-wrapper {
+            margin-top: 0.5rem;
+        }
+
+        .badge-light {
+            font-size: 0.7rem;
+            background: #eee;
+            border-radius: 20px;
+            padding: 0.2rem 0.6rem;
+            font-weight: 500;
+        }
+
+        footer {
+            text-align: center;
+            margin: 3rem 0 1rem;
+            font-size: 0.75rem;
+            color: #6c757d;
+            border-top: 1px solid var(--border);
+            padding-top: 1.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header-flex">
+            <a href="index.html" class="back-button">
+                <i class="fas fa-arrow-left"></i>
+                Back to Home
+            </a>
+        </div>
+        <h1 class="title">Vodafone Business Plans 2026</h1>
+
+        <!-- Section: Business Flex (updated consistent) -->
+        <div class="section-wrapper">
+            <div style="text-align: center;">
+                <div class="section-title">Business Flex Plans</div>
+            </div>
+            <div class="grid">
+                <!-- Flex Business 80 -->
+                <div class="card">
+                    <div class="card-header">Flex Business 80</div>
+                    <div class="plan-main">3,000 Flexes</div>
+                    <div class="plan-price">80 EGP / month ≈ 100 EGP</div>
+                    <ul class="features">
+                        <li>1,000 intra-company minutes</li>
+                        <li>Calls, SMS & Internet via Flex</li>
+                        <li>WATCH IT With Ads</li>
+                        <li>1 Flex = MB / min / SMS to Vodafone</li>
+                    </ul>
+                    <div class="subs-icons">
+                        <img src="watchit.jpg" alt="WatchIT streaming" loading="lazy">
+                    </div>
+                </div>
+
+                <!-- Flex Business 115 -->
+                <div class="card">
+                    <div class="card-header">Flex Business 115</div>
+                    <div class="plan-main">5,000 Flexes</div>
+                    <div class="plan-price">115 EGP / month ≈ 143 EGP</div>
+                    <ul class="features">
+                        <li>1,000 intra-company minutes</li>
+                        <li>Calls, SMS & Internet (Flex usage)</li>
+                        <li>Anghami Plus</li>
+                        <li>WATCH IT (Premium)</li>
+                        <li>Yango Play</li>
+                    </ul>
+                    <div class="subs-icons">
+                        <img src="Anghamy.jpg" alt="Anghami Plus" loading="lazy">
+                        <img src="watchit.jpg" alt="WatchIT" loading="lazy">
+                        <img src="yango.jpg" alt="Yango Play" loading="lazy">
+                    </div>
+                </div>
+
+                <!-- Flex Business 175 -->
+                <div class="card">
+                    <div class="card-header">Flex Business 175</div>
+                    <div class="plan-main">9,000 Flexes</div>
+                    <div class="plan-price">175 EGP / month ≈ 217 EGP</div>
+                    <ul class="features">
+                        <li>1,000 intra-company minutes</li>
+                        <li>Calls, SMS & Internet (Flex usage)</li>
+                        <li>Anghami Plus</li>
+                        <li>WATCH IT</li>
+                        <li>Yango Play</li>
+                    </ul>
+                    <div class="subs-icons">
+                        <img src="Anghamy.jpg" alt="Anghami Plus" loading="lazy">
+                        <img src="watchit.jpg" alt="WatchIT" loading="lazy">
+                        <img src="yango.jpg" alt="Yango Play" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section: Red Business 2026 Plans -->
+        <div class="section-wrapper">
+            <div style="text-align: center;">
+                <div class="section-title">Red Business 2026 Plans</div>
+            </div>
+            <div class="grid">
+                <!-- Red Business 415 -->
+                <div class="card">
+                    <div class="card-header">Red Business 415</div>
+                    <div class="plan-info">10 GB Data • 2,500 mins</div>
+                    <div class="plan-price">360 EGP / month ≈ 515 EGP</div>
+                    <ul class="features">
+                        <li>1,000 Intra mins & 2,000 SMS</li>
+                        <li>Discount on ADSL "185 EGP" OR Home Wireless "230 EGP"</li>
+                        <li>Watch It, Anghami, Amazon Prime, Yango Play</li>
+                    </ul>
+                    <div class="subs-icons">
+                        <img src="watchit.jpg" alt="WatchIT" loading="lazy">
+                        <img src="Anghamy.jpg" alt="Anghami" loading="lazy">
+                        <img src="prime.png" alt="Amazon Prime" loading="lazy">
+                        <img src="yango.jpg" alt="Yango Play" loading="lazy">
+                    </div>
+                </div>
+
+                <!-- Red Business 575 -->
+                <div class="card">
+                    <div class="card-header">Red Business 575</div>
+                    <div class="plan-info">16 GB Data • 3,500 mins</div>
+                    <div class="plan-price">575 EGP / month ≈ 713 EGP</div>
+                    <ul class="features">
+                        <li>1,000 Intra mins & 2,000 SMS</li>
+                        <li>Family Sharing +1 member</li>
+                        <li>Discounts: ADSL 260 EGP OR Home Wireless 290 EGP</li>
+                        <li>4 of 5 Subscriptions (choose)</li>
+                    </ul>
+                    <div class="subs-icons">
+                        <img src="watchit.jpg" alt="WatchIT" loading="lazy">
+                        <img src="Anghamy.jpg" alt="Anghami" loading="lazy">
+                        <img src="prime.png" alt="Prime" loading="lazy">
+                        <img src="yango.jpg" alt="Yango" loading="lazy">
+                        <img src="osn.png" alt="OSN" loading="lazy">
+                    </div>
+                </div>
+
+                <!-- Red Business 980 -->
+                <div class="card">
+                    <div class="card-header">Red Business 980</div>
+                    <div class="plan-info">32 GB Data • 6,000 mins</div>
+                    <div class="plan-price">980 EGP / month ≈ 1,215 EGP</div>
+                    <ul class="features">
+                        <li>1,000 Intra mins & 2,000 SMS</li>
+                        <li>Family Sharing +2 members</li>
+                        <li>Discounts: ADSL 260 EGP OR Home Wireless 290 EGP</li>
+                        <li>ADSL/Home Wireless</li>
+                        <li>Roaming Abroad 1 Week/year</li>
+                        <li>5 of 7 Subscriptions</li>
+                    </ul>
+                    <div class="subs-icons">
+                        <img src="watchit.jpg" alt="WatchIT" loading="lazy">
+                        <img src="Anghamy.jpg" alt="Anghami" loading="lazy">
+                        <img src="prime.png" alt="Prime" loading="lazy">
+                        <img src="yango.jpg" alt="Yango" loading="lazy">
+                        <img src="osn.png" alt="OSN" loading="lazy">
+                        <img src="tod.png" alt="TOD" loading="lazy">
+                        <img src="disney.jpg" alt="Disney+" loading="lazy">
+                    </div>
+                </div>
+
+                <!-- Red Business 1380 -->
+                <div class="card">
+                    <div class="card-header">Red Business 1380</div>
+                    <div class="plan-info">50 GB Data • 8,000 mins</div>
+                    <div class="plan-price">1,380 EGP / month ≈ 1,711 EGP</div>
+                    <ul class="features">
+                        <li>1,000 Intra mins & 2,000 SMS</li>
+                        <li>Discounts: ADSL 330 EGP OR Home Wireless 520 EGP</li>
+                        <li>Family Sharing +3 members</li>
+                        <li>Roaming Abroad 2 Weeks/year</li>
+                        <li>6 of 8 Subscriptions</li>
+                    </ul>
+                    <div class="subs-icons">
+                        <img src="watchit.jpg" alt="WatchIT" loading="lazy">
+                        <img src="Anghamy.jpg" alt="Anghami" loading="lazy">
+                        <img src="prime.png" alt="Prime" loading="lazy">
+                        <img src="yango.jpg" alt="Yango" loading="lazy">
+                        <img src="osn.png" alt="OSN" loading="lazy">
+                        <img src="tod.png" alt="TOD" loading="lazy">
+                        <img src="disney.jpg" alt="Disney+" loading="lazy">
+                        <img src="youtube.png" alt="YouTube Premium" loading="lazy">
+                    </div>
+                </div>
+
+                <!-- Red Business 2000 -->
+                <div class="card">
+                    <div class="card-header">Red Business 2000</div>
+                    <div class="plan-info">85 GB Data • 10,000 mins</div>
+                    <div class="plan-price">2,000 EGP / month ≈ 2,480 EGP</div>
+                    <ul class="features">
+                        <li>1,000 Intra mins & 2,000 SMS</li>
+                        <li>Discounts: ADSL 460 EGP OR Home Wireless 520 EGP</li>
+                        <li>Family Sharing +5 members</li>
+                        <li>Roaming 3 Weeks +10 intl mins outgoing +10 intl mins incoming</li>
+                        <li>7 of 8 Subscriptions</li>
+                    </ul>
+                    <div class="subs-icons">
+                        <img src="watchit.jpg" alt="WatchIT" loading="lazy">
+                        <img src="Anghamy.jpg" alt="Anghami" loading="lazy">
+                        <img src="prime.png" alt="Prime" loading="lazy">
+                        <img src="yango.jpg" alt="Yango" loading="lazy">
+                        <img src="osn.png" alt="OSN" loading="lazy">
+                        <img src="tod.png" alt="TOD" loading="lazy">
+                        <img src="disney.jpg" alt="Disney+" loading="lazy">
+                        <img src="youtube.png" alt="YouTube" loading="lazy">
+                    </div>
+                </div>
+
+                <!-- Red Business 3450 -->
+                <div class="card">
+                    <div class="card-header">Red Business 3450</div>
+                    <div class="plan-info">200 GB Data • 11,000 mins</div>
+                    <div class="plan-price">3,450 EGP / month ≈ 4,278 EGP</div>
+                    <ul class="features">
+                        <li>1,000 Intra mins & 2,000 SMS</li>
+                        <li>Discounts: ADSL 925 EGP OR Home Wireless 520 EGP</li>
+                        <li>Family Sharing +6 members</li>
+                        <li>Roaming 4 Weeks +60 intl mins +15 min incoming +15 outgoing while roaming</li>
+                        <li>All 8 Subscriptions Included</li>
+                    </ul>
+                    <div class="subs-icons">
+                        <img src="watchit.jpg" alt="WatchIT" loading="lazy">
+                        <img src="Anghamy.jpg" alt="Anghami" loading="lazy">
+                        <img src="prime.png" alt="Prime" loading="lazy">
+                        <img src="yango.jpg" alt="Yango" loading="lazy">
+                        <img src="osn.png" alt="OSN" loading="lazy">
+                        <img src="tod.png" alt="TOD" loading="lazy">
+                        <img src="disney.jpg" alt="Disney+" loading="lazy">
+                        <img src="youtube.png" alt="YouTube Premium" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <p>📱 Vodafone Business – Prices inclusive of taxes where applicable.<br>
+                *Benefits and subscriptions subject to terms & conditions. For internal use only.</p>
+        </footer>
+    </div>
+</body>
+
+</html>

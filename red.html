@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta name="description"
+            content="Retail Guide helps Vodafone Egypt retail employees with plans, calculators, TNPS tools and daily work utilities.">
+        <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://vf-guide.com/">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-65E77S47XB"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-65E77S47XB');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4721971253728612"
+        crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Source+Serif+Pro:wght@400;600&display=swap"
+        rel="stylesheet">
+
+    <title>Vodafone RED Plans</title>
+
+    <style>
+        /* ============ ROOT COLORS ============ */
+        :root {
+            --red: #d50000;
+            --dark: #1f2937;
+            --gray: #6b7280;
+            --light: #f3f4f6;
+            --card: #ffffff;
+        }
+
+        /* ============ RESET ============ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* ============ BODY ============ */
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: var(--light);
+            color: var(--dark);
+            padding: 16px;
+        }
+
+        /* ============ PAGE TITLE ============ */
+        .page-title {
+            text-align: center;
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin: 12px 0 24px;
+            color: var(--red);
+        }
+
+        /* ============ CONTAINER (CENTER ON DESKTOP) ============ */
+        .plans-wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* ============ GRID (MOBILE FIRST - FULLY RESPONSIVE) ============ */
+        .plans-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        /* ============ CARD ============ */
+        .plan-card {
+            background: var(--card);
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            padding: 20px 18px;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.25s ease, box-shadow 0.2s ease;
+            height: 100%;
+        }
+
+        .plan-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 28px rgba(0, 0, 0, 0.12);
+        }
+
+        /* ============ PLAN NAME ============ */
+        .plan-name {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--red);
+            margin-bottom: 6px;
+            word-break: break-word;
+        }
+
+        /* ============ PLAN DETAILS ============ */
+        .plan-info {
+            font-size: 0.95rem;
+            color: var(--gray);
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        /* ============ PRICE ============ */
+        .plan-price {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        /* ============ RED LABEL (REPLACED BUTTON) ============ */
+        .bill-label {
+            background: var(--red);
+            color: #fff;
+            text-align: center;
+            font-weight: 700;
+            padding: 8px 12px;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            margin-bottom: 18px;
+            display: inline-block;
+            width: auto;
+            align-self: flex-start;
+            letter-spacing: 0.3px;
+        }
+
+        /* ============ FEATURES (bullets visible) ============ */
+        .features {
+            list-style: disc;
+            padding-left: 18px;
+            font-size: 0.88rem;
+            margin-bottom: 20px;
+            line-height: 1.45;
+        }
+
+        .features li {
+            margin-bottom: 8px;
+            color: var(--dark);
+        }
+
+        /* ============ SUBSCRIPTIONS SECTION ============ */
+        .subscriptions {
+            margin-top: auto;
+            text-align: center;
+            padding-top: 12px;
+        }
+
+        .subscription-images {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .subscription-images img {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+            border-radius: 12px;
+            background: #f9fafb;
+            padding: 6px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s ease;
+        }
+
+        .subscription-images img:hover {
+            transform: scale(1.05);
+        }
+
+        /* back button style - improved spacing + responsiveness */
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            color: var(--red);
+            margin: 0 0 20px 0;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            width: fit-content;
+            border: 1px solid #e5e7eb;
+        }
+
+        .back-button i {
+            font-size: 0.9rem;
+        }
+
+        .back-button:hover {
+            background: var(--red);
+            color: white;
+            border-color: var(--red);
+            transform: translateX(-3px);
+        }
+
+        /* ============ FULLY RESPONSIVE LAYOUT ============ */
+        /* Tablet (portrait and small landscape) */
+        @media (min-width: 560px) {
+            body {
+                padding: 24px 28px;
+            }
+
+            .plans-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 24px;
+            }
+
+            .plan-card {
+                padding: 22px 20px;
+            }
+
+            .page-title {
+                font-size: 1.9rem;
+                margin-bottom: 32px;
+            }
+        }
+
+        /* Desktop & large tablets */
+        @media (min-width: 900px) {
+            .plans-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 28px;
+            }
+
+            .plan-name {
+                font-size: 1.45rem;
+            }
+
+            .plan-price {
+                font-size: 1.55rem;
+            }
+        }
+
+        /* XL Screens / Ultra-wide (better spacing) */
+        @media (min-width: 1300px) {
+            .plans-wrapper {
+                max-width: 1500px;
+            }
+
+            .plans-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 32px;
+            }
+
+            body {
+                padding: 32px 40px;
+            }
+
+            .plan-card {
+                padding: 26px 24px;
+            }
+        }
+
+        /* small mobile adjustments (extra care for 320px-480px) */
+        @media (max-width: 480px) {
+            .subscription-images img {
+                width: 42px;
+                height: 42px;
+                padding: 5px;
+            }
+
+            .plan-name {
+                font-size: 1.2rem;
+            }
+
+            .plan-price {
+                font-size: 1.25rem;
+            }
+
+            .features {
+                font-size: 0.82rem;
+                padding-left: 16px;
+            }
+
+            .bill-label {
+                font-size: 0.8rem;
+                padding: 6px 14px;
+            }
+
+            .back-button {
+                padding: 8px 16px;
+                margin-bottom: 16px;
+            }
+
+            .page-title {
+                font-size: 1.4rem;
+                margin: 8px 0 20px;
+            }
+        }
+
+        /* Fix overflow for long words, maintain content integrity */
+        .plan-info,
+        .features li,
+        .plan-price,
+        .bill-label {
+            word-break: break-word;
+            overflow-wrap: break-word;
+        }
+
+        /* Keep consistent card height on flex columns */
+        .plan-card {
+            height: auto;
+        }
+
+        /* Ensure images don't break layout and keep consistent ratio */
+        .subscription-images {
+            flex-wrap: wrap;
+            row-gap: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <a href="index.html" class="back-button">
+        <i class="fas fa-arrow-left"></i>
+        Back to Home
+    </a>
+
+    <h1 class="page-title">Vodafone RED Plans</h1>
+
+    <div class="plans-wrapper">
+        <div class="plans-grid">
+
+            <!-- RED ESSENTIAL (unchanged data) -->
+            <div class="plan-card">
+                <div class="plan-name">RED Essential +</div>
+                <div class="plan-info">16 GB • 3,500 Minutes</div>
+                <div class="plan-price">575 EGP / month</div>
+
+                <div class="bill-label">After TAX = 701.5 EGP</div>
+
+                <ul class="features">
+                    <li>Family sharing: 1 member</li>
+                    <li>260 EGP DSL discount - OR- 290 : 300 EGP Home Wireless</li>
+                    <li>Mobile installments up to 15000 EGP</li>
+                    <li>Lifestyle: Talabat pro + BEFIT 30 + Qanz</li>
+                    <li>Lifestyle: BEFIT 30 + Qanz</li>
+                    <li>4 Entertainment subscriptions out of 5</li>
+                </ul>
+
+                <div class="subscriptions">
+                    <div class="subscription-images">
+                        <img src="Anghamy.jpg" alt="Anghamy">
+                        <img src="watchit.jpg" alt="WatchIt">
+                        <img src="yango.jpg" alt="Yango">
+                        <img src="prime.png" alt="Yango">
+                        <img src="osn.png" alt="Yango">
+                    </div>
+                </div>
+            </div>
+
+            <!-- RED ADVANCE (unchanged data) -->
+            <div class="plan-card">
+                <div class="plan-name">RED Advance +</div>
+                <div class="plan-info">32 GB • 6,000 Minutes</div>
+                <div class="plan-price">980 EGP / month</div>
+
+                <div class="bill-label">After TAX = 1196 EGP</div>
+
+                <ul class="features">
+                    <li>Family sharing: 2 members</li>
+                    <li>260 EGP DSL discount - OR- 290 : 300 EGP Home Wireless</li>
+                    <li>Mobile installments up to 20000 EGP</li>
+                    <li>Roaming: 10 GB for 1 week/year</li>
+                    <li>Lifestyle: Talabat pro + BEFIT 30 + Qanz</li>
+                    <li>5 Entertainment subscriptions out of 7</li>
+                </ul>
+
+                <div class="subscriptions">
+                    <div class="subscription-images">
+                        <img src="Anghamy.jpg" alt="Anghamy">
+                        <img src="watchit.jpg" alt="WatchIt">
+                        <img src="yango.jpg" alt="Yango">
+                        <img src="prime.png" alt="Yango">
+                        <img src="tod.png" alt="Yango">
+                        <img src="osn.png" alt="osn">
+                        <img src="disney.jpg" alt="disney">
+                    </div>
+                </div>
+            </div>
+
+            <!-- RED PRIME (unchanged data) -->
+            <div class="plan-card">
+                <div class="plan-name">RED Prime +</div>
+                <div class="plan-info">50 GB • 8,000 Minutes</div>
+                <div class="plan-price">1380 EGP / month</div>
+
+                <div class="bill-label">After TAX = 1684 EGP</div>
+
+                <ul class="features">
+                    <li>Family sharing: 3 members</li>
+                    <li>330 EGP DSL discount - OR- 520 EGP Home Wireless</li>
+                    <li>Mobile installments up to 30000 EGP</li>
+                    <li>Roaming: 10 GB for 2 weeks/year</li>
+                    <li>Lifestyle: Talabat pro + BEFIT 30 + Qanz</li>
+                    <li>6 Entertainment subscriptions out of 8</li>
+                </ul>
+
+                <div class="subscriptions">
+                    <div class="subscription-images">
+                        <img src="Anghamy.jpg" alt="Anghamy">
+                        <img src="watchit.jpg" alt="WatchIt">
+                        <img src="yango.jpg" alt="Yango">
+                        <img src="prime.png" alt="prime">
+                        <img src="tod.png" alt="Yango">
+                        <img src="osn.png" alt="osn">
+                        <img src="youtube.png" alt="YT">
+                        <img src="disney.jpg" alt="disney">
+                    </div>
+                </div>
+            </div>
+
+            <!-- RED ELITE (unchanged data) -->
+            <div class="plan-card">
+                <div class="plan-name">RED Elite</div>
+                <div class="plan-info">85 GB • 10,000 Minutes</div>
+                <div class="plan-price">2000 EGP / month</div>
+
+                <div class="bill-label">After TAX = 2440 EGP</div>
+
+                <ul class="features">
+                    <li>Family sharing: 5 members</li>
+                    <li>460 EGP DSL discount - OR- 520 EGP Home Wireless</li>
+                    <li>Mobile installments up to 40000 EGP</li>
+                    <li>Roaming: 10 GB for 3 weeks/year & 10 minutes international</li>
+                    <li>Lifestyle: Talabat pro + BEFIT 30 + Qanz</li>
+                    <li> Entertainment subscriptions 7 out of 8</li>
+                </ul>
+
+                <div class="subscriptions">
+                    <div class="subscription-images">
+                        <img src="Anghamy.jpg" alt="Anghamy">
+                        <img src="watchit.jpg" alt="WatchIt">
+                        <img src="yango.jpg" alt="Yango">
+                        <img src="prime.png" alt="prime">
+                        <img src="tod.png" alt="Yango">
+                        <img src="osn.png" alt="osn">
+                        <img src="youtube.png" alt="YT">
+                        <img src="disney.jpg" alt="disney">
+                    </div>
+                </div>
+            </div>
+
+            <!-- RED EXCLUSIVE (unchanged data) -->
+            <div class="plan-card">
+                <div class="plan-name">RED Exclusive</div>
+                <div class="plan-info">200 GB • 11,000 Minutes</div>
+                <div class="plan-price">3450 EGP / month</div>
+
+                <div class="bill-label">After TAX = 4209 EGP</div>
+
+                <ul class="features">
+                    <li>Family sharing: 6 members</li>
+                    <li>925 EGP DSL discount - OR- 520 : 900 EGP Home Wireless</li>
+                    <li>Mobile installments up to 60000 EGP</li>
+                    <li>Roaming: 10 GB for 4 weeks/year & 60 minutes international</li>
+                    <li>Lifestyle: Talabat pro + BEFIT 30 + Qanz</li>
+                    <li>8 Entertainment subscriptions out of 8</li>
+                </ul>
+
+                <div class="subscriptions">
+                    <div class="subscription-images">
+                        <img src="Anghamy.jpg" alt="Anghamy">
+                        <img src="watchit.jpg" alt="WatchIt">
+                        <img src="yango.jpg" alt="Yango">
+                        <img src="prime.png" alt="prime">
+                        <img src="tod.png" alt="Yango">
+                        <img src="osn.png" alt="osn">
+                        <img src="youtube.png" alt="YT">
+                        <img src="disney.jpg" alt="disney">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>

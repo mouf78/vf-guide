@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta name="description"
+            content="Retail Guide helps Vodafone Egypt retail employees with plans, calculators, TNPS tools and daily work utilities.">
+        <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://vf-guide.com/">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-65E77S47XB"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-65E77S47XB');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4721971253728612"
+        crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <title>ADSL Plans</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .back-arrow {
+            align-self: flex-start;
+            margin-bottom: 20px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            color: #5a67d8;
+            font-weight: 600;
+            transition: transform 0.3s;
+        }
+
+        .back-arrow:hover {
+            transform: translateX(-5px);
+        }
+
+        .back-arrow svg {
+            margin-right: 8px;
+        }
+
+        h1 {
+            color: #2d3748;
+            margin-bottom: 30px;
+            text-align: center;
+            font-size: 2.2rem;
+        }
+
+        .plans-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .plan-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .plan-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .plan-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: linear-gradient(90deg, #ff9a9e 0%, #fad0c4 100%);
+        }
+
+        .plan-title {
+            font-size: 1.5rem;
+            color: #2d3748;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .plan-feature {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .feature-label {
+            color: #4a5568;
+            font-weight: 600;
+        }
+
+        .feature-value {
+            color: #2d3748;
+            font-weight: 700;
+        }
+
+        .price-section {
+            margin-top: auto;
+            padding-top: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        .original-price {
+            color: #718096;
+            text-decoration: line-through;
+            font-size: 0.9rem;
+        }
+
+        .final-price {
+            color: red;
+            font-size: 1.5rem;
+            font-weight: 800;
+        }
+
+        .subscribe-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .subscribe-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border-radius: 8px;
+            padding: 5px 10px;
+            font-weight: 700;
+            color: #e53e3e;
+        }
+
+        @media (max-width: 768px) {
+            .plans-container {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+
+        .subscriptions {
+            margin-top: auto;
+            padding: 15px 0 5px;
+            text-align: center;
+        }
+
+        .subscriptions-title {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .subscription-images {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .subscription-images img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        .subscription-images img:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+
+<body>
+    <a href="index.html" class="back-arrow">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+        </svg>
+        Back to Main
+    </a>
+
+    <h1>ADSL Rate Plans</h1>
+
+    <div class="plans-container">
+        <!-- Plan 1 -->
+        <div class="plan-card">
+            <h2 class="plan-title"><i class="fas fa-wifi"></i> ADSL 50 GB</h2>
+            <div class="plan-feature">
+                <span class="feature-label">Speed</span>
+                <span class="feature-value">30 Mbps</span>
+            </div>
+            <div class="plan-feature">
+                <span class="feature-label">Data</span>
+                <span class="feature-value">50 GB</span>
+            </div>
+            <div class="plan-feature">
+                <span class="feature-label">Monthly Price before TAX</span>
+                <span class="feature-value">150 L.E</span>
+            </div>
+            <div class="price-section">
+                <div>
+                    <!-- <div class="original-price">193.8 L.E</div> -->
+                    <div class="final-price">171 L.E</div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Plan 2 -->
+        <div class="plan-card">
+            <h2 class="plan-title"><i class="fas fa-wifi"></i> ADSL 150 GB</h2>
+            <div class="plan-feature">
+                <span class="feature-label">Speed</span>
+                <span class="feature-value">30 Mbps</span>
+            </div>
+            <div class="plan-feature">
+                <span class="feature-label">Data</span>
+                <span class="feature-value">150 GB</span>
+            </div>
+            <div class="plan-feature">
+                <span class="feature-label">Monthly Price before TAX</span>
+                <span class="feature-value">260 L.E</span>
+            </div>
+            <div class="price-section">
+                <div>
+                    <!-- <div class="original-price">239.4 L.E</div> -->
+                    <div class="final-price">296.4 L.E</div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Plan 3 -->
+        <div class="plan-card">
+            <h2 class="plan-title"><i class="fas fa-wifi"></i> ADSL 200 GB</h2>
+            <div class="plan-feature">
+                <span class="feature-label">Speed</span>
+                <span class="feature-value">30 Mbps</span>
+            </div>
+            <div class="plan-feature">
+                <span class="feature-label">Data</span>
+                <span class="feature-value">200 GB</span>
+            </div>
+            <div class="plan-feature">
+                <span class="feature-label">Monthly Price before TAX</span>
+                <span class="feature-value">330 L.E</span>
+            </div>
+            <div class="subscriptions">
+                <div class="subscription-images">
+                    <!-- <img src="Anghamy.png" alt="Anghamy"> -->
+                    <img src="watchit.jpg" alt="WatchIt">
+                    <!-- <img src="yango.jpg" alt="Yango"> -->
+                </div>
+            </div>
+            <div class="price-section">
+                <div>
+                    <!-- <div class="original-price">296.4 L.E</div> -->
+                    <div class="final-price">376.2 L.E</div>
+                </div>
+                
+
+            </div>
+        </div>
+
+        <!-- Plan 4 -->
+        <div class="plan-card">
+            <h2 class="plan-title"><i class="fas fa-wifi"></i>ADSL 300 GB</h2>
+            <div class="plan-feature">
+                <span class="feature-label">Speed</span>
+                <span class="feature-value">30 Mbps</span>
+            </div>
+            <div class="plan-feature">
+                <span class="feature-label">Data</span>
+                <span class="feature-value">300 GB</span>
+            </div>
+
+            <div class="subscriptions">
+                <div class="subscription-images">
+                    <!-- <img src="Anghamy.png" alt="Anghamy"> -->
+                    <!-- <img src="watchit.jpg" alt="WatchIt"> -->
+                    <!-- <img src="yango.jpg" alt="Yango"> -->
+                </div>
+            </div>
+
+            <div class="plan-feature">
+                <span class="feature-label">Monthly Price before TAX</span>
+                <span class="feature-value">460 L.E</span>
+            </div>
+
+            <div class="subscriptions">
+                <div class="subscription-images">
+                    <!-- <img src="Anghamy.png" alt="Anghamy"> -->
+                    <img src="watchit.jpg" alt="WatchIt">
+                    <!-- <img src="yango.jpg" alt="Yango"> -->
+                </div>
+            </div>
+
+            <div class="price-section">
+                <div>
+                    <!-- <div class="original-price">330.6 L.E</div> -->
+                    <div class="final-price">524.4 L.E</div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Plan 5 -->
+        <div class="plan-card">
+            <h2 class="plan-title"><i class="fas fa-wifi"></i>ADSL 750 GB</h2>
+            <div class="plan-feature">
+                <span class="feature-label">Speed</span>
+                <span class="feature-value">30 Mbps</span>
+            </div>
+            <div class="plan-feature">
+                <span class="feature-label">Data</span>
+                <span class="feature-value">750 GB</span>
+            </div>
+
+            <div class="plan-feature">
+                <span class="feature-label">Monthly Price before TAX</span>
+                <span class="feature-value">925 L.E</span>
+            </div>
+            <div class="subscriptions">
+                <div class="subscription-images">
+                    <!-- <img src="Anghamy.png" alt="Anghamy"> -->
+                    <img src="watchit.jpg" alt="WatchIt">
+                    <img src="yango.jpg" alt="Yango">
+                    <img src="osn.png" alt="osn">
+                </div>
+            </div>
+            <div class="price-section">
+                <div>
+                    <!-- <div class="original-price">490.2 L.E</div> -->
+                    <div class="final-price">1054.5 L.E</div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Plan 6 -->
+        <div class="plan-card">
+            <h2 class="plan-title"><i class="fas fa-wifi"></i>ADSL 300 GB</h2>
+            <div class="plan-feature">
+                <span class="feature-label">Speed</span>
+                <span class="feature-value">70 Mbps</span>
+            </div>
+            <div class="plan-feature">
+                <span class="feature-label">Data</span>
+                <span class="feature-value">300 GB</span>
+            </div>
+            <div class="plan-feature">
+                <span class="feature-label">Monthly Price before TAX</span>
+                <span class="feature-value">690 L.E</span>
+            </div>
+            <div class="subscriptions">
+                <div class="subscription-images">
+                    <img src="osn.png" alt="osn">
+                    <img src="watchit.jpg" alt="WatchIt">
+                    <img src="yango.jpg" alt="Yango">
+                </div>
+            </div>
+            <div class="price-section">
+                <div>
+                    <!-- <div class="original-price">969 L.E</div> -->
+                    <div class="final-price">786.6 L.E</div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Plan 7 -->
+        <div class="plan-card">
+            <h2 class="plan-title"><i class="fas fa-wifi"></i>ADSL 300 GB</h2>
+            <div class="plan-feature">
+                <span class="feature-label">Speed</span>
+                <span class="feature-value highlight">100 Mbps</span>
+            </div>
+            <div class="plan-feature">
+                <span class="feature-label">Data</span>
+                <span class="feature-value">300 GB</span>
+            </div>
+            <div class="plan-feature">
+                <span class="feature-label">Monthly Price before TAX</span>
+                <span class="feature-value">880 L.E</span>
+            </div>
+
+            <div class="subscriptions">
+                <div class="subscription-images">
+                    <img src="osn.png" alt="osn">
+                    <img src="watchit.jpg" alt="WatchIt">
+                    <img src="yango.jpg" alt="Yango">
+                    <img src="amazon.jpg" alt="Amazon">
+                </div>
+            </div>
+            <div class="price-section">
+                <div>
+                    <!-- <div class="original-price">695.4 L.E</div> -->
+                    <div class="final-price">1003.2 L.E</div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Plan 8 -->
+        <div class="plan-card">
+            <h2 class="plan-title"><i class="fas fa-wifi"></i>ADSL 750 GB</h2>
+            <div class="plan-feature">
+                <span class="feature-label">Speed</span>
+                <span class="feature-value highlight">100 Mbps</span>
+            </div>
+            <div class="plan-feature">
+                <span class="feature-label">Data</span>
+                <span class="feature-value">750 GB</span>
+            </div>
+            <div class="plan-feature">
+                <span class="feature-label">Monthly Price before TAX</span>
+                <span class="feature-value">1425 L.E</span>
+            </div>
+
+            <div class="subscriptions">
+                <div class="subscription-images">
+                    <img src="osn.png" alt="osn">
+                    <img src="watchit.jpg" alt="WatchIt">
+                    <img src="yango.jpg" alt="Yango">
+                    <img src="prime.png" alt="Prime">
+                    <img src="tod.png" alt="tod">
+
+                </div>
+            </div>
+            <div class="price-section">
+                <div>
+                    <!-- <div class="original-price">889.2 L.E</div> -->
+                    <div class="final-price">1624.5 L.E</div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Plan 9 -->
+        <div class="plan-card">
+            <h2 class="plan-title"><i class="fas fa-wifi"></i>ADSL 1500 GB</h2>
+            <div class="plan-feature">
+                <span class="feature-label">Speed</span>
+                <span class="feature-value highlight">200 Mbps</span>
+            </div>
+            <div class="plan-feature">
+                <span class="feature-label">Data</span>
+                <span class="feature-value">1500 GB</span>
+            </div>
+            <div class="plan-feature">
+                <span class="feature-label">Monthly Price before TAX</span>
+                <span class="feature-value">2350 L.E</span>
+            </div>
+
+            <div class="subscriptions">
+                <div class="subscription-images">
+                    <img src="osn.png" alt="osn">
+                    <img src="watchit.jpg" alt="WatchIt">
+                    <img src="yango.jpg" alt="Yango">
+                    <img src="prime.png" alt="Prime">
+                    <img src="tod.png" alt="tod">
+                </div>
+            </div>
+            <div class="price-section">
+                <div>
+                    <!-- <div class="original-price">1402.2 L.E</div> -->
+                    <div class="final-price">2679 L.E</div>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+
+    <script>
+        // Add hover effect to cards
+        document.querySelectorAll('.plan-card').forEach(card => {
+            card.addEventListener('mouseenter', function () {
+                this.style.transform = 'translateY(-10px)';
+            });
+
+            card.addEventListener('mouseleave', function () {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+
+</html>

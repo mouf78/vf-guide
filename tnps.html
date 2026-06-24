@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta name="description"
+        content="Retail Guide helps Vodafone Egypt retail employees with plans, calculators, TNPS tools and daily work utilities.">
+      <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://vf-guide.com/">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-65E77S47XB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-65E77S47XB');
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4721971253728612"
+    crossorigin="anonymous"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>tNPS Calculator</title>
+
+  <!-- =============================================
+       GOOGLE FONTS
+  ============================================= -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&family=Righteous&display=swap" rel="stylesheet" />
+
+  <style>
+    /* =============================================
+       CSS CUSTOM PROPERTIES — DARK THEME
+    ============================================= */
+    :root {
+      --bg:          #0f1624;
+      --surface:     #1a2438;
+      --card:        #212f47;
+      --border:      #2e4068;
+      --accent:      #f9a826;
+      --accent-bg:   rgba(249,168,38,0.10);
+      --accent2:     #ff6b6b;
+      --green:       #2ecc71;
+      --green-bg:    rgba(46,204,113,0.10);
+      --red:         #e74c3c;
+      --red-bg:      rgba(231,76,60,0.10);
+      --blue:        #4ecdc4;
+      --blue-bg:     rgba(78,205,196,0.10);
+      --text:        #e8edf5;
+      --text2:       #b0bdd4;
+      --muted:       #7a8fad;
+      --white:       #ffffff;
+      --shadow:      0 8px 32px rgba(0,0,0,0.4);
+      --shadow-sm:   0 2px 12px rgba(0,0,0,0.3);
+      --radius:      16px;
+      --radius-sm:   10px;
+    }
+
+    /* =============================================
+       RESET & BASE
+    ============================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* =============================================
+       DECORATIVE BACKGROUND SYMBOLS
+       Floating 😊 😡 😐 CX ⭐ 💯 at low opacity
+    ============================================= */
+    .bg-decor {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .bg-decor span {
+      position: absolute;
+      font-size: 2.4rem;
+      opacity: 0.045;
+      animation: floatBg 14s ease-in-out infinite;
+      user-select: none;
+    }
+
+    .bg-decor span:nth-child(1)  { top:  5%; left:  4%; font-size: 3.5rem; animation-delay: 0s;   }
+    .bg-decor span:nth-child(2)  { top: 12%; left: 75%; font-size: 2rem;   animation-delay: 2s;   }
+    .bg-decor span:nth-child(3)  { top: 25%; left: 15%; font-size: 4.5rem; font-family:'Righteous',sans-serif; color:var(--accent); animation-delay: 1s; }
+    .bg-decor span:nth-child(4)  { top: 30%; left: 60%; font-size: 2.8rem; animation-delay: 3s;   }
+    .bg-decor span:nth-child(5)  { top: 45%; left:  8%; font-size: 2.2rem; animation-delay: 4s;   }
+    .bg-decor span:nth-child(6)  { top: 50%; left: 82%; font-size: 3rem;   animation-delay: 1.5s; }
+    .bg-decor span:nth-child(7)  { top: 60%; left: 30%; font-size: 5rem;   font-family:'Righteous',sans-serif; color:var(--blue); animation-delay: 2.5s; }
+    .bg-decor span:nth-child(8)  { top: 70%; left: 68%; font-size: 2.5rem; animation-delay: 0.5s; }
+    .bg-decor span:nth-child(9)  { top: 80%; left: 10%; font-size: 3rem;   animation-delay: 3.5s; }
+    .bg-decor span:nth-child(10) { top: 88%; left: 50%; font-size: 2rem;   animation-delay: 1s;   }
+    .bg-decor span:nth-child(11) { top: 92%; left: 85%; font-size: 2.8rem; animation-delay: 4.5s; }
+
+    @keyframes floatBg {
+      0%,100% { transform: translateY(0) rotate(0deg);     }
+      33%      { transform: translateY(-18px) rotate(5deg);  }
+      66%      { transform: translateY(10px)  rotate(-4deg); }
+    }
+
+    /* =============================================
+       APP WRAPPER
+    ============================================= */
+    .app-wrapper {
+      position: relative;
+      z-index: 1;
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 0 0 48px;
+    }
+
+    /* =============================================
+       TOP NAVIGATION BAR
+    ============================================= */
+    .topbar {
+      display: flex;
+      align-items: center;
+      padding: 14px 18px 12px;
+      background: rgba(15,22,36,0.88);
+      backdrop-filter: blur(14px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Home / Back button — top-left */
+    .btn-home {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      padding: 7px 14px;
+      color: var(--text2);
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 800;
+      cursor: pointer;
+      text-decoration: none;
+      transition: border-color 0.2s, transform 0.15s;
+      flex-shrink: 0;
+    }
+    .btn-home:hover { border-color: var(--accent); transform: translateX(-2px); }
+    .btn-home svg   { width: 15px; height: 15px; flex-shrink: 0; }
+
+    /* Centered title */
+    .topbar-title {
+      flex: 1;
+      text-align: center;
+      font-family: 'Righteous', sans-serif;
+      font-size: 1.1rem;
+      color: var(--accent);
+      letter-spacing: 1px;
+    }
+
+    /* Clear button — top-right */
+    .btn-clear {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(231,76,60,0.12);
+      border: 1px solid rgba(231,76,60,0.35);
+      border-radius: 50px;
+      padding: 7px 12px;
+      color: var(--accent2);
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      flex-shrink: 0;
+    }
+    .btn-clear:hover { background: rgba(231,76,60,0.25); transform: scale(1.04); }
+    .btn-clear svg   { width: 14px; height: 14px; }
+
+    /* =============================================
+       HERO HEADER
+    ============================================= */
+    .hero {
+      padding: 26px 20px 8px;
+      text-align: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--accent-bg);
+      border: 1px solid rgba(249,168,38,0.4);
+      border-radius: 50px;
+      padding: 5px 14px;
+      font-size: 0.7rem;
+      font-weight: 900;
+      color: var(--accent);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .hero h1 {
+      font-family: 'Righteous', sans-serif;
+      font-size: 2.1rem;
+      line-height: 1.15;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+    .hero h1 span { color: var(--accent); }
+
+    .hero p {
+      font-size: 0.82rem;
+      color: var(--blue);
+      line-height: 1.55;
+      max-width: 300px;
+      margin: 0 auto;
+    }
+
+    /* =============================================
+       FORMULA PILL
+    ============================================= */
+    .formula-pill {
+      margin: 16px 18px 0;
+      background: var(--surface);
+      border: 1px dashed var(--border);
+      border-radius: var(--radius);
+      padding: 12px 16px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .formula-pill .f-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 2px; }
+
+    .formula-pill .f-text {
+      font-size: 0.74rem;
+      color: var(--muted);
+      line-height: 1.55;
+      font-weight: 700;
+    }
+
+    .formula-pill .f-text strong       { color: var(--accent); font-size: 0.82rem; font-weight: 900; display: block; margin-bottom: 1px; }
+    .formula-pill .f-text strong.blue  { color: var(--blue); margin-top: 6px; }
+
+    /* =============================================
+       SECTIONS
+    ============================================= */
+    .section { margin: 18px 18px 0; }
+
+    .section-label {
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 9px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .section-label::before {
+      content: '';
+      display: inline-block;
+      width: 14px; height: 2.5px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    /* =============================================
+       CARD
+    ============================================= */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    /* =============================================
+       SEGMENT ROW — 3 boxes (Promoters / Passive / Detractors)
+       Each box has: emoji face, label, and numeric input
+       Replaces the old vertical "Customer Segments" card
+    ============================================= */
+    .seg-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin: 18px 18px 0;
+    }
+
+    /* Individual segment box */
+    .seg-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 8px 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      box-shadow: var(--shadow);
+      transition: border-color 0.2s;
+    }
+
+    .seg-box:focus-within { border-color: var(--accent); }
+
+    .seg-face  { font-size: 2rem; line-height: 1; }
+    .seg-label {
+      font-size: 0.6rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--muted);
+    }
+    .seg-pct {
+      font-size: 0.65rem;
+      font-weight: 800;
+      color: var(--muted);
+      min-height: 14px;
+    }
+
+    /* Segment input styling — compact, centered */
+    .seg-box input[type="number"] {
+      width: 100%;
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 10px 6px;
+      color: var(--text);
+      font-family: 'Nunito', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 900;
+      text-align: center;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      -moz-appearance: textfield;
+      appearance: textfield;
+    }
+    .seg-box input[type="number"]::-webkit-outer-spin-button,
+    .seg-box input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; }
+    .seg-box input[type="number"]:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(249,168,38,0.15);
+    }
+    .seg-box input::placeholder { color: #3a4f6e; font-weight: 700; }
+
+    /* Colour accent per segment type */
+    .seg-box--pro .seg-face  { filter: none; }
+    .seg-box--pro input:focus { border-color: var(--green); box-shadow: 0 0 0 3px rgba(46,204,113,0.15); }
+    .seg-box--pro .seg-label  { color: var(--green); }
+    .seg-box--pro .seg-pct    { color: var(--green); opacity: 0.8; }
+
+    .seg-box--pas .seg-label  { color: var(--accent); }
+    .seg-box--pas .seg-pct    { color: var(--accent); opacity: 0.8; }
+    .seg-box--pas input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(249,168,38,0.15); }
+
+    .seg-box--det .seg-label  { color: var(--accent2); }
+    .seg-box--det .seg-pct    { color: var(--accent2); opacity: 0.8; }
+    .seg-box--det input:focus { border-color: var(--accent2); box-shadow: 0 0 0 3px rgba(231,76,60,0.15); }
+
+    /* =============================================
+       FIELD — standard label + input (used in cards)
+    ============================================= */
+    .field {
+      margin-bottom: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .field:last-child { margin-bottom: 0; }
+
+    .field label {
+      font-size: 0.76rem;
+      font-weight: 900;
+      color: var(--muted);
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    /* Base input */
+    .field input{
+      width: 100%;
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 13px 16px;
+      color: var(--text);
+      font-family: 'Nunito', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 900;
+      text-align: center;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      -moz-appearance: textfield;
+      appearance: textfield;
+    }
+    .field input[type="number"]::-webkit-outer-spin-button,
+    .field input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; }
+   .field input:focus{
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(249,168,38,0.15);
+    }
+    .field input::placeholder { color: #3a4f6e; font-weight: 700; }
+
+    /* =============================================
+       BENCHMARK INPUT — bold amber border + amber bg
+    ============================================= */
+    .field.field--benchmark input[type="number"] {
+      border: 3px solid var(--accent);
+      background: var(--accent-bg);
+      color: var(--accent);
+      font-size: 1.55rem;
+      font-weight: 900;
+    }
+    .field.field--benchmark input:focus {
+      box-shadow: 0 0 0 4px rgba(249,168,38,0.18);
+    }
+    .field.field--benchmark label { color: var(--accent); }
+
+    /* =============================================
+       tNPS SCORE — read-only, red/green dynamic
+    ============================================= */
+    .field.field--tnps input {
+      border: 2.5px solid var(--border);
+      background: var(--surface);
+      font-size: 1.9rem;
+      font-weight: 900;
+      letter-spacing: 0.5px;
+      cursor: default;
+      transition: color 0.3s, border-color 0.3s, background 0.3s, box-shadow 0.3s;
+    }
+
+    /* Red — below benchmark */
+    .field.field--tnps.tnps-below input[type="number"] {
+      color: var(--red);
+      border-color: var(--red);
+      background: var(--red-bg);
+      box-shadow: 0 0 0 3px rgba(231,76,60,0.12);
+      animation: pulseRed 2.5s ease-in-out infinite;
+    }
+
+    /* Green — at or above benchmark */
+    .field.field--tnps.tnps-above input[type="number"] {
+      color: var(--green);
+      border-color: var(--green);
+      background: var(--green-bg);
+      box-shadow: 0 0 0 3px rgba(46,204,113,0.12);
+      animation: pulseGreen 2.5s ease-in-out infinite;
+    }
+
+    @keyframes pulseRed {
+      0%,100% { box-shadow: 0 0 0 3px rgba(231,76,60,0.12); }
+      50%      { box-shadow: 0 0 0 7px rgba(231,76,60,0.05); }
+    }
+    @keyframes pulseGreen {
+      0%,100% { box-shadow: 0 0 0 3px rgba(46,204,113,0.12); }
+      50%      { box-shadow: 0 0 0 7px rgba(46,204,113,0.05); }
+    }
+
+    /* =============================================
+       REQUIRED PROMOTERS — bold blue border + tinted bg
+    ============================================= */
+    .field.field--required input[type="number"] {
+      border: 3px solid var(--blue);
+      background: var(--blue-bg);
+      color: var(--blue);
+      font-size: 1.55rem;
+      font-weight: 900;
+      cursor: default;
+    }
+    .field.field--required label { color: var(--blue); }
+
+    /* =============================================
+       STATUS BADGE below tNPS score
+    ============================================= */
+    .tnps-status {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 8px;
+      font-size: 0.82rem;
+      font-weight: 900;
+      opacity: 0;
+      transform: translateY(4px);
+      transition: opacity 0.3s, transform 0.3s;
+    }
+    .tnps-status.visible { opacity: 1; transform: translateY(0); }
+    .tnps-status.below   { color: var(--red); }
+    .tnps-status.above   { color: var(--green); }
+
+    /* =============================================
+       APPLY BUTTON
+       Copies the required promoters figure into the
+       Promoters input box and re-runs the calculation.
+    ============================================= */
+    .apply-wrap {
+      margin: 16px 18px 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    .btn-apply {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, var(--blue), #2196f3);
+      border: none;
+      border-radius: 50px;
+      padding: 14px 32px;
+      color: #fff;
+      font-family: 'Nunito', sans-serif;
+      font-size: 1rem;
+      font-weight: 900;
+      cursor: pointer;
+      letter-spacing: 0.5px;
+      box-shadow: 0 4px 20px rgba(78,205,196,0.35);
+      transition: transform 0.15s, box-shadow 0.2s, opacity 0.2s;
+      width: 100%;
+      justify-content: center;
+    }
+    .btn-apply:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 7px 28px rgba(78,205,196,0.45);
+    }
+    .btn-apply:active:not(:disabled) { transform: scale(0.97); }
+
+    /* Disabled state when no required value exists */
+    .btn-apply:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+
+    .btn-apply svg { width: 18px; height: 18px; }
+
+    /* =============================================
+       TOAST NOTIFICATION
+    ============================================= */
+    .toast {
+      position: fixed;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%) translateY(80px);
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      padding: 12px 24px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: var(--text);
+      box-shadow: var(--shadow);
+      z-index: 200;
+      transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+      white-space: nowrap;
+    }
+    .toast.show { transform: translateX(-50%) translateY(0); }
+
+    /* =============================================
+       FOOTER
+    ============================================= */
+    .footer {
+      margin: 26px 18px 0;
+      text-align: center;
+      font-size: 0.7rem;
+      color: var(--muted);
+      opacity: 0.6;
+    }
+
+    /* =============================================
+       ENTRANCE ANIMATIONS
+    ============================================= */
+    .card, .seg-box, .formula-pill {
+      animation: cardIn 0.45s ease both;
+    }
+    @keyframes cardIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .seg-row .seg-box:nth-child(1) { animation-delay: 0.04s; }
+    .seg-row .seg-box:nth-child(2) { animation-delay: 0.10s; }
+    .seg-row .seg-box:nth-child(3) { animation-delay: 0.16s; }
+  </style>
+</head>
+<body>
+
+  <!-- =============================================
+       BACKGROUND DECORATIVE SYMBOLS
+  ============================================= -->
+  <div class="bg-decor" aria-hidden="true">
+    <span>😊</span>
+    <span>😡</span>
+    <span>CX</span>
+    <span>😐</span>
+    <span>⭐</span>
+    <span>😍</span>
+    <span>CX</span>
+    <span>😤</span>
+    <span>💯</span>
+    <span>😊</span>
+    <span>CX</span>
+  </div>
+
+  <div class="app-wrapper">
+
+    <!-- =============================================
+         TOP NAVIGATION BAR
+    ============================================= -->
+    <nav class="topbar">
+      <!-- Home / Back button — top-left -->
+      <a class="btn-home" href="index.html" title="Back to Home">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+             stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+          <polyline points="9 22 9 12 15 12 15 22"/>
+        </svg>
+        Home
+      </a>
+
+      <span class="topbar-title">TNPS </span>
+
+      <!-- Clear all — top-right -->
+      <button class="btn-clear" id="btnClear" title="Clear all inputs">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+             stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="3 6 5 6 21 6"/>
+          <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/>
+          <path d="M10 11v6M14 11v6"/>
+        </svg>
+        Clear
+      </button>
+    </nav>
+
+    <!-- =============================================
+         HERO HEADER
+    ============================================= -->
+    <header class="hero">
+      <div class="hero-badge">😊 Customer Experience</div>
+      <h1>tNPS <span>Calculator</span></h1>
+      <p>Find exactly how many additional promoters you need to hit your benchmark.</p>
+    </header>
+
+    <!-- =============================================
+         FORMULA PILL — tNPS + Required Promoters formulas
+    ============================================= -->
+    <!-- <div class="formula-pill"> -->
+      <!-- <span class="f-icon">🧮</span> -->
+      <!-- <div class="f-text"> -->
+        <!-- <strong>tNPS</strong> -->
+        <!-- = (Promoters − Detractors) ÷ Total Customers % -->
+        <!-- <strong class="blue">Required Extra Promoters</strong>
+        = ROUNDUP( (BM% × Total − (P − D)) ÷ (1 − BM%) , 0 ) -->
+      <!-- </div> -->
+    <!-- </div> -->
+
+    <!-- =============================================
+         SECTION 1 — BENCHMARK INPUT
+         Special style: bold amber border + amber tinted bg
+    ============================================= -->
+    <div class="section">
+      <div class="section-label">🎯 Target Benchmark</div>
+      <div class="card">
+        <div class="field field--benchmark">
+          <label for="inpBenchmark"><span>🏆</span>Set Benchmark Score (%)</label>
+<input type="text" id="inpBenchmark" placeholder="for Example 65%" />        </div>
+      </div>
+    </div>
+
+    <!-- =============================================
+         SEGMENT ROW — 3 boxes side by side
+         Each box contains: emoji face, label, % share, and number input
+         Replaces the old stacked vertical "Customer Segments" card
+    ============================================= -->
+    <div class="section">
+      <div class="section-label">👥 Customer Segments</div>
+    </div>
+
+    <div class="seg-row">
+      <!-- Promoters box -->
+      <div class="seg-box seg-box--pro">
+        <div class="seg-face">😊</div>
+        <div class="seg-label">Promoters</div>
+        <div class="seg-pct" id="segProPct">0%</div>
+        <input type="number" id="inpPromoters" min="0" step="1" placeholder="0" />
+      </div>
+
+      <!-- Passive box -->
+      <div class="seg-box seg-box--pas">
+        <div class="seg-face">😐</div>
+        <div class="seg-label">Passive</div>
+        <div class="seg-pct" id="segPasPct">0%</div>
+        <input type="number" id="inpPassive" min="0" step="1" placeholder="0" />
+      </div>
+
+      <!-- Detractors box -->
+      <div class="seg-box seg-box--det">
+        <div class="seg-face">😡</div>
+        <div class="seg-label">Detractors</div>
+        <div class="seg-pct" id="segDetPct">0%</div>
+        <input type="number" id="inpDetractors" min="0" step="1" placeholder="0" />
+      </div>
+    </div>
+
+    <!-- =============================================
+         SECTION 2 — RESULTS
+         Total Customers (auto/override) + tNPS score (red/green)
+    ============================================= -->
+    <div class="section">
+      <div class="section-label">📊 Results</div>
+      <div class="card">
+
+        <!-- Total customers: auto-sums segments; user can override -->
+        <div class="field">
+          <label for="inpTotal"><span>👤</span> Total Customers</label>
+          <input type="number" id="inpTotal" min="1" step="1"
+                 placeholder="Auto-calculated or override" />
+        </div>
+
+        <!-- tNPS: read-only, turns red/green vs benchmark -->
+        <div class="field field--tnps" id="fieldTnps">
+          <label for="inpTnps"><span>📈</span> Current tNPS Score (%)</label>
+          <input type="text" id="inpTnps" readonly placeholder="—" />
+        </div>
+
+        <!-- Status badge: pts gap from benchmark -->
+        <div class="tnps-status" id="tnpsStatus">
+          <span id="tnpsStatusIcon"></span>
+          <span id="tnpsStatusText"></span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- =============================================
+         SECTION 3 — REQUIRED PROMOTERS
+         Bold blue border output — key action number
+    ============================================= -->
+    <div class="section">
+      <div class="section-label">🚀 Action Required</div>
+      <div class="card">
+        <div class="field field--required">
+          <label for="inpRequired">
+            <span>⭐</span> Additional Promoters Needed to Hit Benchmark
+          </label>
+          <input type="number" id="inpRequired" readonly placeholder="—" />
+        </div>
+      </div>
+    </div>
+
+    <!-- =============================================
+         APPLY BUTTON
+         Sets Promoters = current Promoters + Required,
+         recalculates tNPS which should now equal benchmark.
+    ============================================= -->
+    <div class="apply-wrap">
+      <button class="btn-apply" id="btnApply" disabled>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+             stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"/>
+        </svg>
+        Apply — Update Promoters to Hit Benchmark
+      </button>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">Data saved in local storage<br> Created By: Mohamed Ouf - Alex Lageteeh Store</div>
+
+  </div><!-- /.app-wrapper -->
+
+  <!-- Toast notification -->
+  <div class="toast" id="toast"></div>
+
+  <!-- =============================================
+       JAVASCRIPT — FULL LOGIC
+  ============================================= -->
+  <script>
+    /* ─── localStorage key ─── */
+    const LS_KEY = 'tnpsCalcData_v4';
+
+    /* ─── Element refs ─── */
+    const $ = id => document.getElementById(id);
+
+    const inpBenchmark  = $('inpBenchmark');
+    const inpPromoters  = $('inpPromoters');
+    const inpPassive    = $('inpPassive');
+    const inpDetractors = $('inpDetractors');
+    const inpTotal      = $('inpTotal');
+    const inpTnps       = $('inpTnps');
+    const inpRequired   = $('inpRequired');
+
+    const fieldTnps      = $('fieldTnps');
+    const tnpsStatus     = $('tnpsStatus');
+    const tnpsStatusIcon = $('tnpsStatusIcon');
+    const tnpsStatusText = $('tnpsStatusText');
+
+    const segProPct = $('segProPct');
+    const segPasPct = $('segPasPct');
+    const segDetPct = $('segDetPct');
+
+    const btnClear = $('btnClear');
+    const btnApply = $('btnApply');
+    const toastEl  = $('toast');
+
+    /* ─── Safe number parse ─── */
+    const num = v => { const n = parseFloat(v); return isNaN(n) ? 0 : n; };
+
+    /* ─── Toast helper ─── */
+    let toastTimer;
+    function showToast(msg) {
+      toastEl.textContent = msg;
+      toastEl.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toastEl.classList.remove('show'), 2800);
+    }
+
+    /* ─────────────────────────────────────────────
+       SAVE all editable inputs to localStorage
+    ───────────────────────────────────────────── */
+    function saveToStorage() {
+      localStorage.setItem(LS_KEY, JSON.stringify({
+        benchmark:   inpBenchmark.value,
+        promoters:   inpPromoters.value,
+        passive:     inpPassive.value,
+        detractors:  inpDetractors.value,
+        total:       inpTotal.value,
+        totalEdited: inpTotal.dataset.userEdited || 'false',
+      }));
+    }
+
+    /* ─────────────────────────────────────────────
+       LOAD saved inputs from localStorage on init
+    ───────────────────────────────────────────── */
+    function loadFromStorage() {
+      try {
+        const raw = localStorage.getItem(LS_KEY);
+        if (!raw) return;
+        const d = JSON.parse(raw);
+        if (d.benchmark  != null) inpBenchmark.value           = d.benchmark;
+        if (d.promoters  != null) inpPromoters.value           = d.promoters;
+        if (d.passive    != null) inpPassive.value             = d.passive;
+        if (d.detractors != null) inpDetractors.value          = d.detractors;
+        if (d.total      != null) inpTotal.value               = d.total;
+        if (d.totalEdited)        inpTotal.dataset.userEdited  = d.totalEdited;
+      } catch(e) { /* fail silently */ }
+    }
+
+    /* ─────────────────────────────────────────────
+       CORE CALCULATION ENGINE
+       Auto-fires on every input event.
+
+       tNPS = (P − D) / Total × 100
+
+       Required extra promoters X (Total grows as you add P):
+         X = ROUNDUP( (BM_dec × Total − (P − D)) / (1 − BM_dec) , 0 )
+
+       Verification — example: BM=65%, P=3, Pa=1, D=3, Total=7
+         tNPS = (3−3)/7×100 = 0%
+         X = ROUNDUP((0.65×7 − 0) / 0.35, 0) = ROUNDUP(13, 0) = 13
+         Check: (3+13−3)/(7+13)×100 = 13/20×100 = 65% ✓
+    ───────────────────────────────────────────── */
+    function calculate() {
+     const bmPct = num(inpBenchmark.value.replace('%', ''));
+      const bmDecimal = bmPct / 100;
+      const promoters  = num(inpPromoters.value);
+      const passive    = num(inpPassive.value);
+      const detractors = num(inpDetractors.value);
+
+      /* Total: auto-sum unless overridden by user */
+      const autoTotal = promoters + passive + detractors;
+      let total;
+
+      if (inpTotal.dataset.userEdited === 'true') {
+        total = num(inpTotal.value);
+        if (total <= 0) { total = autoTotal; inpTotal.dataset.userEdited = 'false'; }
+      } else {
+        total = autoTotal;
+        inpTotal.value = autoTotal > 0 ? autoTotal : '';
+      }
+
+      /* Update segment % share labels inside boxes */
+      if (total > 0) {
+        segProPct.textContent = ((promoters  / total) * 100).toFixed(1) + '%';
+        segPasPct.textContent = ((passive    / total) * 100).toFixed(1) + '%';
+        segDetPct.textContent = ((detractors / total) * 100).toFixed(1) + '%';
+      } else {
+        segProPct.textContent = '0%';
+        segPasPct.textContent = '0%';
+        segDetPct.textContent = '0%';
+      }
+
+      /* tNPS = (P − D) / Total × 100 */
+      let tnps = null;
+      if (total > 0) {
+        tnps = ((promoters - detractors) / total) * 100;
+        inpTnps.value = tnps.toFixed() + '%';          } else {
+        inpTnps.value = '';
+      }
+
+      /* Apply red / green colour to tNPS field */
+      fieldTnps.classList.remove('tnps-below', 'tnps-above');
+      tnpsStatus.classList.remove('visible', 'below', 'above');
+
+      if (tnps !== null && inpBenchmark.value !== '') {
+        if (tnps < bmPct) {
+          fieldTnps.classList.add('tnps-below');
+          tnpsStatus.classList.add('visible', 'below');
+          tnpsStatusIcon.textContent = '😟';
+          tnpsStatusText.textContent = `${(bmPct - tnps).toFixed(1)} pts below benchmark`;
+        } else {
+          fieldTnps.classList.add('tnps-above');
+          tnpsStatus.classList.add('visible', 'above');
+          tnpsStatusIcon.textContent = '🎉';
+          tnpsStatusText.textContent = `Benchmark achieved! +${(tnps - bmPct).toFixed(1)} pts`;
+        }
+      }
+
+      /* Required extra promoters formula */
+      let requiredValue = null;
+
+      if (total > 0 && inpBenchmark.value !== '') {
+        if (bmDecimal >= 1) {
+          /* 100% benchmark is mathematically unreachable */
+          inpRequired.value = '';
+        } else {
+          const raw = (bmDecimal * total - (promoters - detractors)) / (1 - bmDecimal);
+          if (raw <= 0) {
+            inpRequired.value = 0;
+            requiredValue = 0;
+          } else {
+            requiredValue = Math.ceil(raw);
+            inpRequired.value = requiredValue;
+          }
+        }
+      } else {
+        inpRequired.value = '';
+      }
+
+      /* Enable / disable Apply button based on whether there's a positive required value */
+      btnApply.disabled = !(requiredValue !== null && requiredValue > 0);
+
+      saveToStorage();
+    }
+
+    /* ─────────────────────────────────────────────
+       APPLY BUTTON
+       Updates the Promoters input to:
+         current promoters + required extra promoters
+       Then recalculates — tNPS should now equal benchmark.
+    ───────────────────────────────────────────── */
+    function applyRequired() {
+      const requiredExtra = num(inpRequired.value);
+      if (requiredExtra <= 0) return;
+
+      const currentPromoters = num(inpPromoters.value);
+      const newPromoters = currentPromoters + requiredExtra;
+
+      /* Update the promoters input */
+      inpPromoters.value = newPromoters;
+
+      /* Allow total to auto-recalculate */
+      inpTotal.dataset.userEdited = 'false';
+
+      /* Recalculate — tNPS should now match benchmark */
+      calculate();
+
+      showToast(`✅ Promoters updated to ${newPromoters} — tNPS now matches benchmark!`);
+    }
+
+    /* ─────────────────────────────────────────────
+       CLEAR ALL
+    ───────────────────────────────────────────── */
+    function clearAll() {
+      [inpBenchmark, inpPromoters, inpPassive, inpDetractors, inpTotal].forEach(el => el.value = '');
+      inpTotal.dataset.userEdited = 'false';
+      inpTnps.value     = '';
+      inpRequired.value = '';
+
+      segProPct.textContent = '0%';
+      segPasPct.textContent = '0%';
+      segDetPct.textContent = '0%';
+
+      fieldTnps.classList.remove('tnps-below', 'tnps-above');
+      tnpsStatus.classList.remove('visible', 'below', 'above');
+
+      btnApply.disabled = true;
+
+      localStorage.removeItem(LS_KEY);
+      showToast('🗑️ All inputs cleared');
+    }
+
+    /* ─────────────────────────────────────────────
+       EVENT LISTENERS — auto-calculate on every change
+    ───────────────────────────────────────────── */
+    [inpBenchmark, inpPromoters, inpPassive, inpDetractors].forEach(el => {
+      el.addEventListener('input', () => {
+        if (el !== inpBenchmark) inpTotal.dataset.userEdited = 'false';
+        calculate();
+      });
+    });
+
+    inpTotal.addEventListener('input', () => {
+      inpTotal.dataset.userEdited = 'true';
+      calculate();
+    });
+
+    btnClear.addEventListener('click', clearAll);
+    btnApply.addEventListener('click', applyRequired);
+
+
+    inpBenchmark.addEventListener('blur', () => {
+        const val = inpBenchmark.value.replace('%', '').trim();
+        if (val !== '') {
+          inpBenchmark.value = parseFloat(val) + '%';
+        }
+      });
+    /* ─────────────────────────────────────────────
+       INIT
+    ───────────────────────────────────────────── */
+    loadFromStorage();
+    calculate();
+  </script>
+
+</body>
+</html>

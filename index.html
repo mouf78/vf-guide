@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta name="description"
+            content="Retail Guide helps Vodafone Egypt retail employees with plans, calculators, TNPS tools and daily work utilities.">
+        <meta name="robots" content="index, follow">
+    <meta name="description" content="Retail Guide helps Vodafone Egypt retail employees with plans, calculators, TNPS tools and daily work utilities.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://vf-guide.com/">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-65E77S47XB"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-65E77S47XB');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4721971253728612"
+        crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vf-guide</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #4f46e5;
+            /* Indigo */
+            --secondary-color: #1e293b;
+            /* Slate */
+            --accent-color: #6366f1;
+            /* Bright Indigo */
+            --success-color: #10b981;
+            /* Emerald */
+            --warning-color: #f59e0b;
+            /* Amber */
+            --danger-color: #ef4444;
+            /* Red */
+            --light-color: #f9fafb;
+            --text-color: #1f2937;
+            --card-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #e0f2fe 0%, #ede9fe 100%);
+            color: var(--text-color);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: var(--card-shadow);
+        }
+
+        header h1 {
+            color: var(--primary-color);
+            margin-bottom: 8px;
+            font-size: 2.4rem;
+        }
+
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .service-button {
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+            color: var(--dark-color);
+            box-shadow: var(--card-shadow);
+            transition: all 0.35s ease;
+            border-left: 6px solid var(--primary-color);
+        }
+
+        .service-button:hover {
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            border-left-color: var(--accent-color);
+        }
+
+        .icon-wrapper {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--accent-color);
+            color: white;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+        }
+
+        .service-button:nth-child(2n) .icon-wrapper {
+            background: var(--success-color);
+        }
+
+        .service-button:nth-child(3n) .icon-wrapper {
+            background: var(--warning-color);
+        }
+
+        .service-button:nth-child(5n) .icon-wrapper {
+            background: var(--danger-color);
+        }
+
+        .service-button h3 {
+            font-size: 1.1rem;
+            color: var(--secondary-color);
+            margin: 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+            margin-top: 30px;
+        }
+
+        footer p {
+            font-style: italic;
+            color: var(--secondary-color);
+            margin: 0;
+        }
+
+        /* Force 2 columns layout on mobile */
+        @media (max-width: 768px) {
+            body {
+                margin: 0;
+                padding: 10px;
+            }
+
+            .button-grid {
+                grid-template-columns: repeat(2, 1fr);
+                /* 2 buttons beside each other */
+                gap: 15px;
+                padding-left: -5px;
+            }
+
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            .icon-wrapper {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+
+            .service-button h3 {
+                font-size: 1rem;
+            }
+        }
+        p{
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+            font-style: italic;
+            margin-top: 0;
+        }
+    
+        .legal-links{
+            display:flex;
+            justify-content:center;
+            flex-wrap:wrap;
+            gap:15px;
+            margin-top:15px;
+        }
+
+        .legal-links a{
+            text-decoration:none;
+            color:var(--primary-color);
+            font-weight:600;
+            font-size:0.95rem;
+        }
+
+        .legal-links a:hover{
+            text-decoration:underline;
+        }
+
+        @media (max-width:768px){
+            .legal-links{
+                gap:10px;
+                flex-direction:row;
+                align-items:center;
+            }
+        }
+
+        .service-button.image-service-button {
+            background: transparent;
+            border-left: none;
+            padding: 0;
+        }
+
+        /* Center images responsively on all pages */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+</style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Retail Guide</h1>
+            <p>...from Ouf with love💖</p>
+        </header>
+
+        <div class="button-grid">
+            <a href="pointsCalculator.html" class="service-button image-service-button">
+                <img src="btnimgs/points.webp" alt="Points" style="width: 75%; height: auto; display: block; border: none;">
+            </a
+
+            </a>
+
+            <a href="bank.png" class="service-button image-service-button">
+                <img src="btnimgs/bank.webp" alt="Bank" style="width: 75%; height: auto; display: block; border: none;">
+            </a>
+
+            <a href="counter.html" class="service-button image-service-button">
+                <img src="btnimgs/money.webp" alt="Counter" style="width: 75%; height: auto; display: block; border: none;">
+            </a>
+
+            <a href="https://eur05.safelinks.protection.outlook.com/?url=http%3A%2F%2F10.230.82.51%3A7900%2F%3F&data=05%7C02%7Cmohamed.awadsaeed%40vodafone.com.eg%7C48e4ab4c5b854e08c5b608de6977612e%7C28d54ec722214717acb07f8c37359048%7C0%7C0%7C639064158609060460%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=xQCst91JnjkbhekCoEmF%2FoMbPaFhvv7F8XQtrenFKAA%3D&reserved=0"
+                class="service-button image-service-button">
+                <img src="btnimgs/genai.webp" alt="GenAi" style="width: 75%; height: auto; display: block; border: none;">
+            </a>
+
+            
+
+            <a href="red.html" class="service-button image-service-button">
+                <img src="btnimgs/red.webp" alt="RED" style="width: 75%; height: auto; display: block; border: none;">
+            </a>
+
+            <a href="Flex.html" class="service-button image-service-button">
+                <img src="btnimgs/flex.webp" alt="Flex" style="width: 75%; height: auto; display: block; border: none;">
+            </a>
+
+            <a href="ep.html" class="service-button image-service-button">
+                <img src="btnimgs/ep.webp" alt="EP" style=" width: 75%; height: auto; display: block; border: none;background: transparent">
+            </a>
+
+            <a href="mi.html" class="service-button image-service-button">
+                <img src="btnimgs/mi.webp" alt="MI" style=" width: 75%; height: auto; display: block; border: none;background: transparent">
+            </a>
+
+            <a href="dsl.html" class="service-button image-service-button">
+                <img src="btnimgs/dsl.webp" alt="DSL" style=" width: 75%; height: auto; display: block; border: none;background: transparent">
+            </a>
+
+
+            <a href="AtHome.html" class="service-button image-service-button">
+                <img src="btnimgs/AH.webp" alt="AT Home" style="width: 75%; height: auto; display: block; border: none;">
+            </a>
+
+            
+
+            <a href="fakka.html" class="service-button image-service-button">
+                <img src="btnimgs/fakka.webp" alt="Fakka" style="width: 75%; height: auto; display: block; border: none;">
+            </a>
+
+            
+
+            <a href="tnps.html" class="service-button image-service-button">
+                <img src="btnimgs/tnps.webp" alt="tnps" style="width: 75%; height: auto; display: block; border: none;">
+            </a>
+
+            
+
+            
+
+            
+        </div>
+
+        <footer>
+            <p>© 2026 - Created By: | Mohamed Awad Ouf </p>
+        
+<div class="legal-links">
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact Us</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms & Conditions</a>
+</div>
+</footer>
+    </div>
+</body>
+
+</html>

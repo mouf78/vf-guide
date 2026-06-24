@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="canonical" href="https://vf-guide.com/">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-65E77S47XB"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-65E77S47XB');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4721971253728612"
+        crossorigin="anonymous"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Funny Money 💰</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background-color: #fff;
+            margin: 1px;
+            padding: 1px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            border: 1px solid blue;
+        }
+
+        /* ===== Splash Screen ===== */
+        #splash {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: url('funnymoney.png') no-repeat center center;
+            background-size: cover;
+            z-index: 999;
+            overflow: hidden;
+        }
+
+        /* ===== App Container ===== */
+        .app-container {
+            width: 100%;
+            max-width: 500px;
+            height: 100vh;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 800;
+            font-family: 'Times New Roman', Times, serif;
+            margin: 5px 0 7px 0;
+            letter-spacing: 0.5px;
+            color: #0056b3;
+        }
+
+        h1 .red {
+            color: red;
+        }
+
+        h1 .blue {
+            color: blue;
+        }
+
+        .currency-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 6px;
+            gap: 2px;
+        }
+
+        .currency-row img {
+            width: 75px;
+            height: auto;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .currency-row input {
+            text-align: center;
+            padding: 12px;
+            font-size: 1.1rem;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .currency-row input.adjust {
+            width: 80px;
+        }
+
+        .currency-row input.count {
+            width: 80px;
+        }
+
+        .currency-row input.total {
+            width: 120px;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #8886dd;
+            margin: 14px 0;
+        }
+
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .reset-btn {
+            display: block;
+            width: 100%;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 14px;
+            font-size: 1.3rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .reset-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .highlight {
+            border: 3px solid gold !important;
+        }
+
+        footer {
+            margin-top: 20px;
+            color: #999;
+            font-size: 0.9em;
+            text-align: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Splash Screen -->
+    <div id="splash"></div>
+
+    <!-- Main App -->
+    <div class="app-container" id="app" style="display:none;">
+        <h1>💰 Money Counter</h1>
+        <hr>
+        <div id="currencies"></div>
+        <hr>
+        <div class="total-row">
+            <span>Total Packets: <span id="totalPackets">0</span></span>
+            <span>Total: <span id="grandTotal" style="color:red;">0</span> <span style="color:blue;">EGP</span></span>
+        </div>
+        <button class="reset-btn" id="resetBtn">Reset</button>
+        <footer>Created by Mohamed Ouf© 2025 moufApps<br>Alex Lageteeh Store</footer>
+    </div>
+
+    <script>
+        const currencyData = [
+            { value: 200, img: "currencies/200.png" },
+            { value: 100, img: "currencies/100.png" },
+            { value: 50, img: "currencies/50.png" },
+            { value: 20, img: "currencies/20.png" },
+            { value: 10, img: "currencies/10.png" },
+            { value: 5, img: "currencies/5.png" },
+            { value: 1, img: "currencies/1.png" },
+            { value: 0.5, img: "currencies/0.5.png" },
+            { value: 0.25, img: "currencies/0.25.png" },
+        ];
+
+        const container = document.getElementById("currencies");
+
+        currencyData.forEach((c, i) => {
+            const row = document.createElement("div");
+            row.className = "currency-row";
+            row.innerHTML = `
+        <img src="${c.img}" alt="${c.value} EGP" id="img-${i}" tabindex="-1"/>
+        <input type="number" class="adjust" placeholder="+/-" step="1" id="adjust-${i}" tabindex="${i + 1}">
+        <input type="number" class="count" id="count-${i}" value="0" readonly tabindex="-1">
+        <input type="number" class="total" id="total-${i}" value="0" readonly tabindex="-1">
+      `;
+            container.appendChild(row);
+        });
+
+        function updateTotals() {
+            let grandTotal = 0;
+            let totalPackets = 0;
+
+            currencyData.forEach((c, i) => {
+                const count = document.getElementById(`count-${i}`);
+                const total = document.getElementById(`total-${i}`);
+                const countVal = parseInt(count.value) || 0;
+                total.value = (countVal * c.value).toFixed(0);
+                grandTotal += parseFloat(total.value);
+                totalPackets += Math.floor(countVal / 100);
+                if (countVal >= 100) total.classList.add("highlight");
+                else total.classList.remove("highlight");
+            });
+
+            document.getElementById("grandTotal").textContent = grandTotal.toFixed(2);
+            document.getElementById("totalPackets").textContent = totalPackets;
+        }
+
+        currencyData.forEach((c, i) => {
+            const img = document.getElementById(`img-${i}`);
+            const adjust = document.getElementById(`adjust-${i}`);
+            const count = document.getElementById(`count-${i}`);
+
+            img.addEventListener("click", () => {
+                count.value = parseInt(count.value) + 1;
+                updateTotals();
+            });
+
+            const applyAdjustment = () => {
+                let adj = parseInt(adjust.value) || 0;
+                let current = parseInt(count.value) || 0;
+                let newCount = current + adj;
+                if (newCount < 0) newCount = 0;
+                count.value = newCount;
+                adjust.value = "";
+                updateTotals();
+            };
+
+            adjust.addEventListener("keydown", (e) => {
+                if (e.key === "Enter") {
+                    e.preventDefault();
+                    applyAdjustment();
+                    const nextInput = document.getElementById(`adjust-${i + 1}`);
+                    if (nextInput) nextInput.focus();
+                }
+            });
+
+            adjust.addEventListener("blur", applyAdjustment);
+        });
+
+        document.getElementById("resetBtn").addEventListener("click", () => {
+            document.querySelectorAll(".adjust, .count, .total").forEach(el => {
+                if (el.classList.contains("count") || el.classList.contains("total")) el.value = 0;
+                else el.value = "";
+                el.classList.remove("highlight");
+            });
+            document.getElementById("grandTotal").textContent = "0";
+            document.getElementById("totalPackets").textContent = "0";
+        });
+
+        // Splash duration 2 seconds
+        setTimeout(() => {
+            document.getElementById("splash").style.display = "none";
+            document.getElementById("app").style.display = "flex";
+        }, 2000);
+    </script>
+</body>
+
+</html>

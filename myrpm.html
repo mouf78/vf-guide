@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta name="description"
+            content="Retail Guide helps Vodafone Egypt retail employees with plans, calculators, TNPS tools and daily work utilities.">
+        <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://vf-guide.com/">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-65E77S47XB"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-65E77S47XB');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4721971253728612"
+        crossorigin="anonymous"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My RPM</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fa;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 500px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: #6c757d;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 12px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .back-button:hover {
+            background: #5a6268;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 22px;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+
+        input {
+            width: 80%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 30px;
+            margin-left: 30px;
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .btn {
+            width: 100%;
+            background: #2d6cdf;
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-size: 18px;
+            margin-top: 10px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #1a56c4;
+        }
+
+        .btn-clear {
+            background: #e74c3c;
+            margin-top: 5px;
+        }
+
+        .btn-clear:hover {
+            background: #c0392b;
+        }
+
+        .btn-save {
+            background: #27ae60;
+            margin-top: 5px;
+        }
+
+        .btn-save:hover {
+            background: #219653;
+        }
+
+        .section {
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .section-title {
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .row {
+            display: grid;
+            grid-template-columns: repeat(6, minmax(0, 1fr));
+            gap: 1px;
+            margin-bottom: 10px;
+        }
+
+        .row input {
+            padding: 4px;
+            font-size: 12px;
+            width: 70%;
+            border: 1px solid #bbb;
+            border-radius: 4px;
+            margin: 2px 0;
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .row span {
+            text-align: center;
+            font-weight: bold;
+            font-size: 12px;
+        }
+
+        .status-message {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #2d6cdf;
+            font-weight: bold;
+            height: 20px;
+        }
+
+        /* Style for percentage inputs to show % sign */
+        .percentage-input {
+            position: relative;
+        }
+
+        .percentage-input::after {
+            content: "%";
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-weight: bold;
+            color: #666;
+        }
+
+        .month-info {
+            text-align: center;
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 10px;
+            background: #f0f8ff;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        .overall-section {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .overall-main-inputs {
+            display: flex;
+            grid-template-columns: 1fr 1fr;
+            gap: 41px;
+            width: 100%;
+            max-width: 365px;
+            margin: 0 auto;
+        }
+
+        .overall-input-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .overall-input-group label {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .overall-input-group input {
+            width: 90%;
+            font-size: 16px;
+            margin-left: 0;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 12px;
+            color: #666;
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+        }
+
+        /* Special styling for Consumer Box and EP Box sections */
+        .simple-box-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .simple-box-input-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .simple-box-input-group label {
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+
+        .simple-box-input-group input {
+            width: 90%;
+            font-size: 14px;
+            margin-left: 0;
+        }
+
+        /* Styling for overall breakdown inputs */
+        .overall-breakdown {
+            display: flex;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-bottom: 15px;
+            width: 100%;
+            max-width: 470px;
+        }
+
+        .breakdown-input-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .breakdown-input-group label {
+            font-size: 10px;
+            margin-bottom: 3px;
+            text-align: center;
+        }
+
+        .breakdown-input-group input {
+            width: 85%;
+            font-size: 12px;
+            margin-left: 0;
+            padding: 5px;
+        }
+
+        /* Color coding for percentage values */
+        .percentage-excellent {
+            background-color: #27ae60 !important;
+            color: white !important;
+        }
+
+        .percentage-good {
+            background-color: #f1c40f !important;
+            color: black !important;
+        }
+
+        .percentage-fair {
+            background-color: #e67e22 !important;
+            color: black !important;
+        }
+
+        .percentage-poor {
+            background-color: #e74c3c !important;
+            color: white !important;
+        }
+
+        /* Overall section specific styling - no colors except for main inputs */
+        .overall-breakdown input {
+            background-color: #f8f9fa !important;
+            color: #333 !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Back Button -->
+        <a href="index.html" class="back-button">← Back</a>
+
+        <h2>My RPM</h2>
+        <!-- <button class="btn" onclick="showInstructions()">Get My RPM</button> -->
+        <!-- <div class="status-message" id="statusMessage"></div> -->
+
+        <div id="sections"></div>
+
+        <div class="section" style="background:#e8f4f8;">
+            <div class="section-title">Overall</div>
+
+            <!-- New breakdown inputs -->
+            <div class="overall-breakdown">
+                <div class="breakdown-input-group">
+                    <label>Voice Box</label>
+                    <input type="number" id="voiceBox" class="percentage-input" readonly />
+                </div>
+                <div class="breakdown-input-group">
+                    <label>EP Box</label>
+                    <input type="number" id="epBoxOverall" class="percentage-input" readonly />
+                </div>
+                <div class="breakdown-input-group">
+                    <label>Terminal</label>
+                    <input type="number" id="terminalOverall" class="percentage-input" readonly />
+                </div>
+                <div class="breakdown-input-group">
+                    <label>Connectivity</label>
+                    <input type="number" id="connectivityOverall" class="percentage-input" readonly />
+                </div>
+                <div class="breakdown-input-group">
+                    <label>ADSL</label>
+                    <input type="number" id="adslOverall" class="percentage-input" readonly />
+                </div>
+            </div>
+
+            <!-- Main overall inputs side by side -->
+            <div class="overall-main-inputs">
+                <div class="overall-input-group">
+                    <label>Overall MTD %</label>
+                    <input type="number" id="actualMTD" class="percentage-input" readonly />
+                </div>
+                <div class="overall-input-group">
+                    <label>Overall Proj%</label>
+                    <input type="number" id="projection" class="percentage-input" readonly />
+                </div>
+            </div>
+        </div>
+
+        <div class="month-info" id="monthInfo"></div>
+
+        <button class="btn btn-save" onclick="saveAndReset()">Save & Reset Add Values</button>
+        <button class="btn btn-clear" onclick="clearAllData()">Clear All Data</button>
+
+        <div class="footer">
+            📊 All data will be saved on your mobile for the next visit<br>
+            Copyright © Mohamed Ouf 2025
+        </div>
+    </div>
+
+    <script>
+        // Define all section names
+        const sections = ["Consumer Points", "GAS", "Consumer Box", "EP Points", "Ep GAs", "EP Box", "Terminal", "Connectivity", "ADSL"];
+
+        // Calculate current month information
+        // Get current date
+        const now = new Date();
+        // Get current month (0-11, where 0=January)
+        const currentMonth = now.getMonth();
+        // Get current year
+        const currentYear = now.getFullYear();
+        // Calculate days in current month (by getting the last day of the month)
+        const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+        // Get number of days passed in current month EXCLUDING today (yesterday's date)
+        const passedDays = now.getDate() - 1;
+        // Get month name for display
+        const monthNames = ["January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"];
+        const currentMonthName = monthNames[currentMonth];
+
+        // Function to apply color coding based on percentage value
+        function applyPercentageColor(input) {
+            const value = parseFloat(input.value) || 0;
+
+            // Remove existing color classes
+            input.classList.remove('percentage-excellent', 'percentage-good', 'percentage-fair', 'percentage-poor');
+
+            // Apply appropriate color based on value
+            if (value >= 100) {
+                input.classList.add('percentage-excellent');
+            } else if (value >= 90) {
+                input.classList.add('percentage-good');
+            } else if (value >= 80) {
+                input.classList.add('percentage-fair');
+            } else {
+                input.classList.add('percentage-poor');
+            }
+        }
+
+        // Function to render all sections in the UI
+        function renderSections() {
+            // Display month information
+            document.getElementById('monthInfo').textContent =
+                `📅 ${currentMonthName}: ${passedDays} days passed (excluding today) of ${daysInMonth} total days`;
+
+            let html = "";
+            // Define background colors for each section
+            const sectionColors = [
+                "#f0e6ff", // Consumer Points - Light purple
+                "#e6f7ff", // GAS - Light blue
+                "#fff0e6", // Consumer Box - Light orange
+                "#f0ffe6", // EP Points - Light green
+                "#fffae6", // Ep GAs - Light yellow
+                "#e6f0ff", // EP Box - Light blue
+                "#ffe6e6", // Terminal - Light red
+                "#e6ffe6", // Connectivity - Light green
+                "#f5e6ff"  // ADSL - Light purple
+            ];
+
+            // Create HTML for each section
+            sections.forEach((title, index) => {
+                // Special handling for Consumer Box section (index 2)
+                if (index === 2) {
+                    html += `<div class="section" style="background:${sectionColors[index]}">
+                        <div class="section-title">${title}</div>
+                        <div class="simple-box-row">
+                            <div class="simple-box-input-group">
+                                <label>MTD</label>
+                                <input type="number" class="consumer-box-mtd percentage-input" data-section="${index}" data-field="mtd" readonly />
+                            </div>
+                            <div class="simple-box-input-group">
+                                <label>Projection</label>
+                                <input type="number" class="consumer-box-projection percentage-input" data-section="${index}" data-field="projection" readonly />
+                            </div>
+                        </div>
+                    </div>`;
+                }
+                // Special handling for EP Box section (index 5)
+                else if (index === 5) {
+                    html += `<div class="section" style="background:${sectionColors[index]}">
+                        <div class="section-title">${title}</div>
+                        <div class="simple-box-row">
+                            <div class="simple-box-input-group">
+                                <label>MTD</label>
+                                <input type="number" class="ep-box-mtd percentage-input" data-section="${index}" data-field="mtd" readonly />
+                            </div>
+                            <div class="simple-box-input-group">
+                                <label>Projection</label>
+                                <input type="number" class="ep-box-projection percentage-input" data-section="${index}" data-field="projection" readonly />
+                            </div>
+                        </div>
+                    </div>`;
+                }
+                else {
+                    html += `<div class="section" style="background:${sectionColors[index]}">
+                        <div class="section-title">${title}</div>
+                        <div class="row headers">
+                            <span>T</span><span>A</span><span>%</span><span>Add</span><span>MTD%</span><span>RE%</span>
+                        </div>
+                        <div class="row">
+                            <input type="number" class="target" data-section="${index}" data-field="target" />
+                            <input type="number" class="achieved" data-section="${index}" data-field="achieved" />
+                            <input type="number" class="percentage percentage-input" data-section="${index}" data-field="percentage" readonly />
+                            <input type="number" class="editable" data-section="${index}" data-field="add" style="border:2px solid #2d6cdf;background:#eef4ff;" />
+                            <input type="number" class="mtd percentage-input" data-section="${index}" data-field="mtd" readonly />
+                            <input type="number" class="re percentage-input" data-section="${index}" data-field="re" readonly />
+                        </div>
+                    </div>`;
+                }
+            });
+            // Insert the generated HTML into the page
+            document.getElementById("sections").innerHTML = html;
+
+            // Add event listeners for input fields
+            // When any of these inputs change, recalculate percentages, save data, and show status
+            document.querySelectorAll('.target, .achieved, .editable').forEach(input => {
+                input.addEventListener('input', calculateAllPercentages);
+                input.addEventListener('input', saveDataToLocalStorage);
+                input.addEventListener('input', showSaveStatus);
+            });
+
+            // Add special event listeners for Consumer Points and GAS sections
+            // These will trigger Consumer Box calculations when A.value or add.value changes
+            document.querySelectorAll('input[data-section="0"][data-field="achieved"], input[data-section="0"][data-field="add"], input[data-section="1"][data-field="achieved"], input[data-section="1"][data-field="add"]').forEach(input => {
+                input.addEventListener('input', calculateConsumerBoxValues);
+            });
+
+            // Add special event listeners for EP Points and Ep GAs sections
+            // These will trigger EP Box calculations when A.value or add.value changes
+            document.querySelectorAll('input[data-section="3"][data-field="achieved"], input[data-section="3"][data-field="add"], input[data-section="4"][data-field="achieved"], input[data-section="4"][data-field="add"]').forEach(input => {
+                input.addEventListener('input', calculateEPBoxValues);
+            });
+
+            // Load any previously saved data from local storage
+            loadDataFromLocalStorage();
+
+            // Apply all equations on initialize
+            calculateAllPercentages();
+        }
+
+        // Function to calculate Consumer Box MTD value based on Consumer Points and GAS percentages
+        function calculateConsumerBoxValues() {
+            // Get Consumer Points percentage (section index 0)
+            const consumerPointsPercentage = parseFloat(document.querySelector(`input[data-section="0"][data-field="percentage"]`).value) || 0;
+
+            // Get GAS percentage (section index 1)
+            const gasPercentage = parseFloat(document.querySelector(`input[data-section="1"][data-field="percentage"]`).value) || 0;
+
+            let consumerBoxMTD = 0;
+
+            // Apply the business rules for Consumer Box MTD calculation
+            if (consumerPointsPercentage < 50) {
+                consumerBoxMTD = 0;
+            } else if (consumerPointsPercentage >= 50 && consumerPointsPercentage < 90) {
+                consumerBoxMTD = 0.75 * gasPercentage;
+            } else if (consumerPointsPercentage >= 90 && consumerPointsPercentage <= 100) {
+                consumerBoxMTD = gasPercentage;
+            } else if (consumerPointsPercentage > 100) {
+                consumerBoxMTD = gasPercentage;
+            }
+
+            // Set the Consumer Box MTD value (rounded to nearest whole number)
+            const consumerBoxMTDInput = document.querySelector('.consumer-box-mtd');
+            consumerBoxMTDInput.value = Math.round(consumerBoxMTD);
+            applyPercentageColor(consumerBoxMTDInput);
+
+            // Calculate Consumer Box Projection based on MTD value and time progression
+            // Projection = MTD% / passed days * days in month
+            let consumerBoxProjection = 0;
+            if (passedDays > 0) {
+                consumerBoxProjection = (consumerBoxMTD / passedDays) * daysInMonth;
+            } else {
+                // If no days have passed yet, projection equals MTD
+                consumerBoxProjection = consumerBoxMTD;
+            }
+
+            // Set the Consumer Box Projection value (rounded to nearest whole number)
+            const consumerBoxProjectionInput = document.querySelector('.consumer-box-projection');
+            consumerBoxProjectionInput.value = Math.round(consumerBoxProjection);
+            applyPercentageColor(consumerBoxProjectionInput);
+
+            // Update overall calculations since Consumer Box values have changed
+            updateOverallAndFinalComm();
+        }
+
+        // Function to calculate EP Box MTD value based on Ep GAs and EP Points percentages
+        function calculateEPBoxValues() {
+            // Get Ep GAs percentage (section index 4)
+            const epGAsPercentage = parseFloat(document.querySelector(`input[data-section="4"][data-field="percentage"]`).value) || 0;
+
+            // Get EP Points percentage (section index 3)
+            const epPointsPercentage = parseFloat(document.querySelector(`input[data-section="3"][data-field="percentage"]`).value) || 0;
+
+            let epBoxMTD = 0;
+
+            // Apply the business rules for EP Box MTD calculation
+            if (epGAsPercentage < 50) {
+                epBoxMTD = 0;
+            } else if (epGAsPercentage >= 50 && epGAsPercentage < 90) {
+                epBoxMTD = 0.75 * epPointsPercentage;
+            } else if (epGAsPercentage >= 90 && epGAsPercentage <= 100) {
+                epBoxMTD = epPointsPercentage;
+            } else if (epGAsPercentage > 100) {
+                epBoxMTD = epPointsPercentage;
+            }
+
+            // Set the EP Box MTD value (rounded to nearest whole number)
+            const epBoxMTDInput = document.querySelector('.ep-box-mtd');
+            epBoxMTDInput.value = Math.round(epBoxMTD);
+            applyPercentageColor(epBoxMTDInput);
+
+            // Calculate EP Box Projection based on MTD value and time progression
+            // Projection = MTD% / passed days * days in month
+            let epBoxProjection = 0;
+            if (passedDays > 0) {
+                epBoxProjection = (epBoxMTD / passedDays) * daysInMonth;
+            } else {
+                // If no days have passed yet, projection equals MTD
+                epBoxProjection = epBoxMTD;
+            }
+
+            // Set the EP Box Projection value (rounded to nearest whole number)
+            const epBoxProjectionInput = document.querySelector('.ep-box-projection');
+            epBoxProjectionInput.value = Math.round(epBoxProjection);
+            applyPercentageColor(epBoxProjectionInput);
+
+            // Update overall calculations since EP Box values have changed
+            updateOverallAndFinalComm();
+        }
+
+        // Function to calculate all percentage values
+        function calculateAllPercentages() {
+            // Get all rows with input fields (excluding header rows)
+            const rows = document.querySelectorAll('.section .row:not(.headers)');
+
+            // Calculate percentages for each row/section
+            rows.forEach(row => {
+                const inputs = row.querySelectorAll('input');
+                // Get values from input fields, default to 0 if empty
+                const target = parseFloat(inputs[0].value) || 0;
+                const achieved = parseFloat(inputs[1].value) || 0;
+                const add = parseFloat(inputs[3].value) || 0;
+
+                // Calculate percentage (A/T) - Achievement percentage
+                if (target > 0) {
+                    const percentage = (achieved / target) * 100;
+                    // Round to nearest whole number and set value
+                    inputs[2].value = Math.round(percentage);
+                    applyPercentageColor(inputs[2]);
+                } else {
+                    // If no target, set percentage to 0
+                    inputs[2].value = 0;
+                    applyPercentageColor(inputs[2]);
+                }
+
+                // Calculate MTD% ((Add + A) / T) - Month-to-Date percentage
+                if (target > 0) {
+                    const mtdPercentage = ((add + achieved) / target) * 100;
+                    // Round to nearest whole number and set value
+                    inputs[4].value = Math.round(mtdPercentage);
+                    applyPercentageColor(inputs[4]);
+                } else {
+                    // If no target, set MTD% to 0
+                    inputs[4].value = 0;
+                    applyPercentageColor(inputs[4]);
+                }
+
+                // Calculate RE% (MTD% / passed days * days in month) - Required Efficiency percentage
+                // NOTE: passedDays excludes today (yesterday's date)
+                const mtdValue = parseFloat(inputs[4].value) || 0;
+                if (passedDays > 0) {
+                    // Calculate required efficiency to meet target by month end
+                    const rePercentage = (mtdValue / passedDays) * daysInMonth;
+                    // Round to nearest whole number and set value
+                    inputs[5].value = Math.round(rePercentage);
+                    applyPercentageColor(inputs[5]);
+                } else {
+                    // If no days have passed yet (beginning of month), set RE% equal to MTD%
+                    inputs[5].value = inputs[4].value;
+                    applyPercentageColor(inputs[5]);
+                }
+            });
+
+            // Calculate Consumer Box and EP Box values whenever any percentages change
+            calculateConsumerBoxValues();
+            calculateEPBoxValues();
+        }
+
+        // Function to update overall and final commission values
+        function updateOverallAndFinalComm() {
+            // Calculate breakdown values for overall section
+            // Voice Box = Consumer Box MTD * 0.6
+            const consumerBoxMTD = parseFloat(document.querySelector('.consumer-box-mtd').value) || 0;
+            const voiceBoxInput = document.getElementById('voiceBox');
+            voiceBoxInput.value = Math.round(consumerBoxMTD * 0.6);
+
+            // EP Box Overall = EP Box MTD * 0.1
+            const epBoxMTD = parseFloat(document.querySelector('.ep-box-mtd').value) || 0;
+            const epBoxOverallInput = document.getElementById('epBoxOverall');
+            epBoxOverallInput.value = Math.round(epBoxMTD * 0.1);
+
+            // Terminal Overall = Terminal % * 0.1
+            const terminalPercentage = parseFloat(document.querySelector(`input[data-section="6"][data-field="percentage"]`).value) || 0;
+            const terminalOverallInput = document.getElementById('terminalOverall');
+            terminalOverallInput.value = Math.round(terminalPercentage * 0.1);
+
+            // Connectivity Overall = Connectivity % * 0.04
+            const connectivityPercentage = parseFloat(document.querySelector(`input[data-section="7"][data-field="percentage"]`).value) || 0;
+            const connectivityOverallInput = document.getElementById('connectivityOverall');
+            connectivityOverallInput.value = Math.round(connectivityPercentage * 0.04);
+
+            // ADSL Overall = ADSL % * 0.16
+            const adslPercentage = parseFloat(document.querySelector(`input[data-section="8"][data-field="percentage"]`).value) || 0;
+            const adslOverallInput = document.getElementById('adslOverall');
+            adslOverallInput.value = Math.round(adslPercentage * 0.16);
+
+            // Calculate weighted average for Overall MTD %
+            const actualMTD = (consumerBoxMTD * 0.6) +
+                (epBoxMTD * 0.1) +
+                (terminalPercentage * 0.1) +
+                (connectivityPercentage * 0.04) +
+                (adslPercentage * 0.16);
+
+            // Set Overall MTD % value (rounded to nearest whole number)
+            const actualMTDInput = document.getElementById('actualMTD');
+            actualMTDInput.value = Math.round(actualMTD);
+            applyPercentageColor(actualMTDInput);
+
+            // Calculate Overall Proj% based on weighted average of RE% values from specific sections
+            // Consumer Box Projection (index 2) weight: 60% - Using the Consumer Box projection value
+            const consumerBoxProjection = parseFloat(document.querySelector('.consumer-box-projection').value) || 0;
+            // EP Box Projection (index 5) weight: 10% - Using the EP Box projection value
+            const epBoxProjection = parseFloat(document.querySelector('.ep-box-projection').value) || 0;
+            // Terminal RE% (index 6) weight: 10%
+            const terminalRE = parseFloat(document.querySelector(`input[data-section="6"][data-field="re"]`).value) || 0;
+            // Connectivity RE% (index 7) weight: 4%
+            const connectivityRE = parseFloat(document.querySelector(`input[data-section="7"][data-field="re"]`).value) || 0;
+            // ADSL RE% (index 8) weight: 16%
+            const adslRE = parseFloat(document.querySelector(`input[data-section="8"][data-field="re"]`).value) || 0;
+
+            // Calculate weighted average for Overall Proj%
+            const projection = (consumerBoxProjection * 0.6) +
+                (epBoxProjection * 0.1) +
+                (terminalRE * 0.1) +
+                (connectivityRE * 0.04) +
+                (adslRE * 0.16);
+
+            // Set Overall Proj% value (rounded to nearest whole number)
+            const projectionInput = document.getElementById('projection');
+            projectionInput.value = Math.round(projection);
+            applyPercentageColor(projectionInput);
+        }
+
+        // Function to save and reset add values
+        function saveAndReset() {
+            // Sum all add.values to their A.values
+            document.querySelectorAll('.section .row:not(.headers)').forEach(row => {
+                const inputs = row.querySelectorAll('input');
+                const achieved = parseFloat(inputs[1].value) || 0;
+                const add = parseFloat(inputs[3].value) || 0;
+
+                // If there's an add value, add it to achieved and clear add
+                if (add > 0) {
+                    inputs[1].value = achieved + add;
+                    inputs[3].value = '';
+
+                    // Clear MTD% value
+                    inputs[4].value = '';
+                    inputs[4].classList.remove('percentage-excellent', 'percentage-good', 'percentage-fair', 'percentage-poor');
+                }
+            });
+
+            // Recalculate all percentages
+            calculateAllPercentages();
+
+            // Save to local storage
+            saveDataToLocalStorage();
+
+            // Show status message
+            showStatusMessage('Add values saved and reset successfully');
+        }
+
+        // Function to save ALL data to browser's local storage
+        function saveDataToLocalStorage() {
+            // Create data object to store ALL data
+            const data = {
+                sections: [],
+                overall: {
+                    actualMTD: document.getElementById('actualMTD').value,
+                    projection: document.getElementById('projection').value,
+                    voiceBox: document.getElementById('voiceBox').value,
+                    epBoxOverall: document.getElementById('epBoxOverall').value,
+                    terminalOverall: document.getElementById('terminalOverall').value,
+                    connectivityOverall: document.getElementById('connectivityOverall').value,
+                    adslOverall: document.getElementById('adslOverall').value
+                },
+                consumerBox: {
+                    mtd: document.querySelector('.consumer-box-mtd').value,
+                    projection: document.querySelector('.consumer-box-projection').value
+                },
+                epBox: {
+                    mtd: document.querySelector('.ep-box-mtd').value,
+                    projection: document.querySelector('.ep-box-projection').value
+                }
+            };
+
+            // Collect data from each regular section (including Terminal, Connectivity, ADSL)
+            sections.forEach((_, index) => {
+                // Skip Consumer Box (index 2) and EP Box (index 5) as they have special handling
+                if (index !== 2 && index !== 5) {
+                    const targetInput = document.querySelector(`input[data-section="${index}"][data-field="target"]`);
+                    const achievedInput = document.querySelector(`input[data-section="${index}"][data-field="achieved"]`);
+                    const addInput = document.querySelector(`input[data-section="${index}"][data-field="add"]`);
+                    const percentageInput = document.querySelector(`input[data-section="${index}"][data-field="percentage"]`);
+                    const mtdInput = document.querySelector(`input[data-section="${index}"][data-field="mtd"]`);
+                    const reInput = document.querySelector(`input[data-section="${index}"][data-field="re"]`);
+
+                    if (targetInput && achievedInput && addInput && percentageInput && mtdInput && reInput) {
+                        const sectionData = {
+                            target: targetInput.value,
+                            achieved: achievedInput.value,
+                            add: addInput.value,
+                            percentage: percentageInput.value,
+                            mtd: mtdInput.value,
+                            re: reInput.value
+                        };
+                        data.sections.push(sectionData);
+                    }
+                }
+            });
+
+            // Save to local storage
+            localStorage.setItem('rpmData', JSON.stringify(data));
+            console.log('Data saved to local storage:', data);
+        }
+
+        // Function to load ALL saved data from local storage
+        function loadDataFromLocalStorage() {
+            // Try to retrieve saved data
+            const savedData = localStorage.getItem('rpmData');
+
+            if (savedData) {
+                const data = JSON.parse(savedData);
+                console.log('Data loaded from local storage:', data);
+
+                // Load regular section data
+                if (data.sections) {
+                    // Create a mapping of original section indices to stored section indices
+                    // We skip Consumer Box (2) and EP Box (5) in the stored data
+                    const sectionMapping = {
+                        0: 0, // Consumer Points
+                        1: 1, // GAS
+                        3: 2, // EP Points (stored as index 2 in data.sections)
+                        4: 3, // Ep GAs (stored as index 3 in data.sections)
+                        6: 4, // Terminal (stored as index 4 in data.sections)
+                        7: 5, // Connectivity (stored as index 5 in data.sections)
+                        8: 6  // ADSL (stored as index 6 in data.sections)
+                    };
+
+                    // Load data for each section
+                    Object.keys(sectionMapping).forEach(originalIndex => {
+                        const storedIndex = sectionMapping[originalIndex];
+                        if (data.sections[storedIndex]) {
+                            const sectionData = data.sections[storedIndex];
+                            const targetInput = document.querySelector(`input[data-section="${originalIndex}"][data-field="target"]`);
+                            const achievedInput = document.querySelector(`input[data-section="${originalIndex}"][data-field="achieved"]`);
+                            const addInput = document.querySelector(`input[data-section="${originalIndex}"][data-field="add"]`);
+                            const percentageInput = document.querySelector(`input[data-section="${originalIndex}"][data-field="percentage"]`);
+                            const mtdInput = document.querySelector(`input[data-section="${originalIndex}"][data-field="mtd"]`);
+                            const reInput = document.querySelector(`input[data-section="${originalIndex}"][data-field="re"]`);
+
+                            if (targetInput) targetInput.value = sectionData.target || '';
+                            if (achievedInput) achievedInput.value = sectionData.achieved || '';
+                            if (addInput) addInput.value = sectionData.add || '';
+                            if (percentageInput) percentageInput.value = sectionData.percentage || '';
+                            if (mtdInput) mtdInput.value = sectionData.mtd || '';
+                            if (reInput) reInput.value = sectionData.re || '';
+                        }
+                    });
+                }
+
+                // Load Consumer Box data
+                if (data.consumerBox) {
+                    document.querySelector('.consumer-box-mtd').value = data.consumerBox.mtd || '';
+                    document.querySelector('.consumer-box-projection').value = data.consumerBox.projection || '';
+                }
+
+                // Load EP Box data
+                if (data.epBox) {
+                    document.querySelector('.ep-box-mtd').value = data.epBox.mtd || '';
+                    document.querySelector('.ep-box-projection').value = data.epBox.projection || '';
+                }
+
+                // Load overall data
+                if (data.overall) {
+                    document.getElementById('actualMTD').value = data.overall.actualMTD || '';
+                    document.getElementById('projection').value = data.overall.projection || '';
+                    document.getElementById('voiceBox').value = data.overall.voiceBox || '';
+                    document.getElementById('epBoxOverall').value = data.overall.epBoxOverall || '';
+                    document.getElementById('terminalOverall').value = data.overall.terminalOverall || '';
+                    document.getElementById('connectivityOverall').value = data.overall.connectivityOverall || '';
+                    document.getElementById('adslOverall').value = data.overall.adslOverall || '';
+                }
+
+                // Recalculate percentages with loaded data
+                calculateAllPercentages();
+
+                // Show status message
+                showStatusMessage('Data loaded from previous session');
+            }
+        }
+
+        // Function to clear all data from form and local storage
+        function clearAllData() {
+            if (confirm('Are you sure you want to clear all data?')) {
+                // Remove data from local storage
+                localStorage.removeItem('rpmData');
+
+                // Clear all input fields
+                document.querySelectorAll('input').forEach(input => {
+                    input.value = '';
+                    input.classList.remove('percentage-excellent', 'percentage-good', 'percentage-fair', 'percentage-poor');
+                });
+
+                // Show status message
+                showStatusMessage('All data cleared');
+            }
+        }
+
+        // Function to display status messages
+        function showStatusMessage(message) {
+            const statusElement = document.getElementById('statusMessage');
+            statusElement.textContent = message;
+
+            // Clear message after 3 seconds
+            setTimeout(() => {
+                statusElement.textContent = '';
+            }, 3000);
+        }
+
+        // Function to show save status
+        function showSaveStatus() {
+            showStatusMessage('Data saved automatically');
+        }
+
+        // Function to show instructions and open Excel sheet
+        function showInstructions() {
+            alert(`🔍 Instructions:\n\n1. Open Excel Sheet\n2. Search for your data\n3. Manually enter the data\n\n📊 Excel URL: https://docs.google.com/spreadsheets/d/15G1JRzbXrIurKt5623wCM1zS4_NjKlF6Iz-3hOiy-_k/edit`);
+
+            // Open Excel automatically in a new tab
+            window.open('https://docs.google.com/spreadsheets/d/15G1JRzbXrIurKt5623wCM1zS4_NjKlF6Iz-3hOiy-_k/edit', '_blank');
+        }
+
+        // Initialize the application when page loads
+        renderSections();
+    </script>
+</body>
+
+</html>

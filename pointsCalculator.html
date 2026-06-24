@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta name="description"
+            content="Retail Guide helps Vodafone Egypt retail employees with plans, calculators, TNPS tools and daily work utilities.">
+        <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://vf-guide.com/">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-65E77S47XB"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-65E77S47XB');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4721971253728612"
+        crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Points Calculator</title>
+    <style>
+        body {
+            padding: 0 5%;
+            font-family: Arial, sans-serif;
+            margin: 20px auto;
+            /* Changed to auto for centering */
+            max-width: 600px;
+        }
+
+        #date-display {
+            /* align-items: center; */
+            text-align: center;
+            margin-bottom: 10px;
+            margin-top: 0;
+            color: red
+        }
+
+        .totals {
+            display: flex;
+            justify-content: space-between;
+            max-width: 600px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            font-family: 'Bookman Old Style', Georgia, serif;
+        }
+
+        .accordion {
+            margin-bottom: 10px;
+        }
+
+        .accordion-button {
+            width: 100%;
+            padding: 10px;
+            background-color: #f1c40f;
+            border: none;
+            text-align: left;
+            outline: none;
+            cursor: pointer;
+            color: black;
+            transition: background-color 0.3s;
+            font-family: 'Bookman Old Style', Georgia, serif;
+            font-weight: bold;
+        }
+
+        .accordion-button.active {
+            background-color: #d1c4e9;
+            color: black;
+        }
+
+        .accordion-content {
+            display: none;
+            flex-direction: column;
+            gap: 10px;
+            margin: 10px 0;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .row {
+            display: flex;
+            gap: 10px;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .accordion-content button {
+            padding: 10px 20px;
+            background-color: lightyellow;
+            border: 1px solid #ccc;
+            color: black;
+            cursor: pointer;
+            flex: 1 1 auto;
+            text-align: center;
+            position: relative;
+            font-family: 'Bookman Old Style', Georgia, serif;
+        }
+
+        .accordion-content button.clicked {
+            background-color: #7fb33b;
+            color: white;
+        }
+
+        .click-count {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: #fff;
+            color: red;
+            font-size: 12px;
+            padding: 2px 6px;
+            border-radius: 50%;
+        }
+
+        #reset {
+            margin-top: 5px;
+            background-color: red;
+            color: white;
+            padding: 15px;
+            border: red 1px solid;
+            cursor: pointer;
+            width: 100%;
+            font-size: 18px;
+        }
+        #myrpm {
+            margin-top: 5px;
+            background-color: rgb(34, 34, 79);
+            color: white;
+            padding: 15px;
+            border: blue 1px solid;
+            cursor: pointer;
+            width: 100%;
+            font-size: 18px;
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        .credit {
+            margin-top: 25px;
+            color: rgb(86, 13, 13);
+            padding: 1px;
+            border: rgb(72, 0, 255) 1px solid;
+            cursor: pointer;
+            width: 100%;
+            font-size: 18px;
+            line-height: 150%;
+            background-color: azure;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-weight: 700;
+        }
+
+        .credit span {
+            text-decoration: underline; 
+        }
+
+        .credit p{
+            margin: -387px;
+            border:none;
+        }
+
+        button {
+            border-radius: 6px;
+            width: calc(50% - 5px);
+        }
+
+        @media (max-width: 600px) {
+            .row {
+                justify-content: space-around;
+                width: 100%;
+            }
+
+            .accordion-content button {
+                flex: 1 1 30%;
+                min-width: 50px;
+            }
+
+            .totals {
+                flex-direction: row;
+                margin-bottom: 2px;
+                font-family: 'Bookman Old Style', Georgia, serif;
+            }
+
+            @keyframes pulse {
+                0% {
+                    transform: scale(1);
+                }
+
+                50% {
+                    transform: scale(1.1);
+                }
+
+                100% {
+                    transform: scale(1);
+                }
+            }
+
+            /* #newBtn {
+                border: red solid 2px;
+                animation: pulse 1s infinite;
+            } */
+        }
+
+        h3 {
+            text-align: center;
+            border: solid red 1px;
+            border-radius: 6px;
+            padding: 5px;
+            margin-bottom: 0;
+        }
+
+        .Connectivity-Devices {
+            text-align: center;
+            margin-top: 5px;
+        }
+
+        input {
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid black;
+            text-align: center;
+        }
+
+        .accordion-button .arrow {
+            float: right;
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-button.active .arrow {
+            transform: rotate(180deg);
+        }
+
+        #GAsBtn {
+            border: dashed 1px green;
+        }
+
+        #red-memberBtn {
+            border: dashed 1px #ccc;
+        }
+
+        .highlight {
+            animation: flash 0.5s;
+        }
+
+        @keyframes flash {
+            0% {
+                background-color: yellow;
+            }
+
+            100% {
+                background-color: transparent;
+            }
+        }
+
+        /* New Terminal Section Styles */
+        .terminal-radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            /* margin: 10px 0; */
+        }
+
+        .terminal-radio-item {
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 8px;
+            background-color: #f5f5f5;
+            border-radius: 4px;
+        }
+
+        .terminal-radio-item input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .terminal-radio-label {
+            flex-grow: 1;
+        }
+
+        .terminal-radio-description {
+            font-size: 10px;
+            color: #666;
+            margin-left: 5px;
+        }
+
+        .terminal-input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .terminal-results {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            gap: 81px;
+        }
+
+        .terminal-result-box {
+            flex: 1;
+            text-align: center;
+        }
+
+        .terminal-result-box input {
+            width: 100%;
+            pointer-events: none;
+            background-color: #f5f5f5;
+            width: 50%;
+        }
+
+        #addNewItem {
+            margin: 10px auto;
+            background-color: #4CAF50;
+            color: white;
+            font-weight: bold;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #ter-sumAll {
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        #new {
+            width: 40px;
+            margin: 0 30px;
+            border-radius: 50%;
+            font-weight: 600;
+            background-color: white;
+            color: red;
+            display: inline-block;
+            margin: 0 30px;
+            border-radius: 50%;
+            font-weight: 600;
+            background-color: white;
+            color: red;
+            text-align: center;
+            padding: 1px;
+            border: 2px solid red;
+        }
+
+        h3 span {
+            font-size: 16px;
+            color: #05098e;
+            font-weight: bold;
+            font-family: 'Bookman Old Style', Georgia, serif;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h3> 💖Points Calculator - Alex Lageteeh 💖<br> <span>🔥With The Latest Updates🔥<br>By: Mohamed Ouf</span>
+    </h3>
+    <div id="date-display"></div>
+    <div class="totals">
+        <div>Points: <span id="points">0</span></div>||
+        <div>Price: <span id="price">0</span></div>||
+        <div>GAs: <span id="gas">0</span></div>
+    </div>
+
+    <div class="accordion">
+        <button class="accordion-button" onclick="toggleAccordion(this)">
+            Flex <span class="arrow">▼</span>
+        </button>
+        <div class="accordion-content">
+            <div class="row">
+                <button onclick="updateValues(this, 2, 140, 1)">Flex 52<span class="click-count">0</span></button>
+                <button onclick="updateValues(this, 6, 180, 1)">Flex 80<span class="click-count">0</span></button>
+            </div>
+            <div class="row">
+                <button onclick="updateValues(this, 8, 230, 1)">Flex 115<span class="click-count">0</span></button>
+                <button onclick="updateValues(this, 8, 316, 1)">Flex 175<span class="click-count">0</span></button>
+                <button onclick="updateValues(this, 8, 558, 1)">Flex 345<span class="click-count">0</span></button>
+                <button id="vfCashBtn" onclick="updateValues(this, 5, 5, 0)">VMT with Flex <span
+                        class="click-count">0</span></button>
+            </div>
+            <hr style="margin: 10px 0; border: none; border-top: 1px solid #ccc;">
+            <div class="row">
+                <button onclick="updateValues(this, 1, 85, 1)">Pre<span class="click-count">0</span></button>
+                <button onclick="updateValues(this, 4, 90, 0)">VMT with Pre<span class="click-count">0</span></button>
+            </div>
+            <hr style="margin: 10px 0; border: none; border-top: 1px solid #ccc;">
+
+            <div class="row">
+                <button onclick="updateValues(this, 10, 0, 1)">MNP ->Flex 45 & 70 <span
+                        class="click-count">0</span></button>
+                <button onclick="updateValues(this, 16, 0, 1)">MNP ->Flex 100 & 150 & 300<span
+                        class="click-count">0</span></button>
+
+                <!-- <button onclick="updateValues(this, 10, 5, 0)">VF-Cash<span class="click-count">0</span></button> -->
+                <!-- <button id="vfCashBtn" onclick="updateValues(this, 10, 5, 0)">VF-Cash<span
+                        class="click-count">0</span></button> -->
+
+
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="accordion">
+        <button class="accordion-button" onclick="toggleAccordion(this)">
+            MI <span class="arrow">▼</span>
+        </button>
+        <div class="accordion-content">
+            <div class="row">
+                <button onclick="updateValues(this, 6, 86, 0)">MI 60<span class="click-count">0</span></button>
+                <button onclick="updateValues(this, 2, 122, 0)">MI 85<span class="click-count">0</span></button>
+                <button onclick="updateValues(this, 2, 150, 0)">MI 105<span class="click-count">0</span></button>
+            </div>
+            <div class="row">
+                <button onclick="updateValues(this, 2, 222, 0)">MI 155<span class="click-count">0</span></button>
+                <button onclick="updateValues(this, 2, 372, 0)">MI 260<span class="click-count">0</span></button>
+                <button onclick="updateValues(this, 2, 558, 0)">MI 390<span class="click-count">0</span></button>
+                <button onclick="updateValues(this, 2, 743, 0)">MI 520<span class="click-count">0</span></button>
+            </div>
+        </div>
+    </div> -->
+
+    <div class="accordion">
+        <button class="accordion-button" onclick="toggleAccordion(this)">
+            Red <span class="arrow">▼</span>
+        </button>
+        <div class="accordion-content">
+            <!-- <h4 style="margin-top: 5px; border-top: 1px solid #ccc; padding-top: 5px; margin: 5px;">New</h4> -->
+            <!-- <div class="row">
+                <button onclick="updateValues(this, 40, 200, 1)">Red Essential<span
+                        class="click-count">0</span></button>
+                <button onclick="updateValues(this, 40, 200, 1)">Red Advance<span class="click-count">0</span></button>
+            </div> -->
+            <div class="row">
+                <!-- <button onclick="updateValues(this, 40, 200, 1)">Red Prime<span class="click-count">0</span></button> -->
+                <button onclick="updateValues(this, 40, 200, 1)">Red New<span class="click-count">0</span></button>
+                <button onclick="updateValues(this, 40, 200, 0)">Red Conversion<span
+                        class="click-count">0</span></button>
+            </div>
+            <!-- <h4 style="margin-top: 5px; border-top: 1px solid #ccc; padding-top: 5px; margin: 5px;">Conversion</h4> -->
+            <!-- <div class="row">
+                <button onclick="updateValues(this, 40, 0, 0)">Red Essential<span class="click-count">0</span></button>
+                <button onclick="updateValues(this, 40, 0, 0)">Red Advance<span class="click-count">0</span></button>
+            </div> -->
+            <!-- <div class="row">
+                <button onclick="updateValues(this, 40, 0, 0)">Red Prime<span class="click-count">0</span></button>
+                <button onclick="updateValues(this, 40, 0, 0)">Red Elite<span class="click-count">0</span></button>
+                <button onclick="updateValues(this, 40, 0, 0)">Red Exclusive<span class="click-count">0</span></button>
+            </div> -->
+
+            <div style="margin-top: 5px; border-top: 1px solid #ccc; padding-top: 5px; margin: 5px; width: 100%;">
+                <div class="row">
+                    <button id="red-memberBtn" onclick="updateValues(this, 3, 200, 1)">Member New<span
+                            class="click-count">0</span></button>
+                    <button id="red-memberBtn" onclick="updateValues(this, 3, 0, 0)">Member Conv<span
+                            class="click-count">0</span></button>
+                    <button id="red-memberBtn" onclick="updateValues(this, 60, 0, 1)">Red MNP<span
+                            class="click-count">0</span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <button class="accordion-button" onclick="toggleAccordion(this)">
+            Enterprise <span class="arrow">▼</span>
+        </button>
+        <div class="accordion-content">
+            <div class="totals" style="justify-content: space-between;">
+                <div>EP Points: <span id="epPoints">0</span></div>
+                <div>EP GAs: <span id="epGas">0</span></div>
+            </div>
+            <div class="row">
+                <button onclick="updateEp(this, 50, 0)">New Account<span class="click-count">0</span></button>
+                <button onclick="updateEp(this, 5, 1)">New Lines<span class="click-count">0</span></button>
+                <button onclick="updateEp(this, 3, 1)">Migration<span class="click-count">0</span></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <button class="accordion-button" onclick="toggleAccordion(this)">
+            At Home & ADSL <span class="arrow">▼</span>
+        </button>
+        <div class="accordion-content">
+            <div class="totals" style="justify-content: space-between;">
+                <div>Fixed Points: <span id="fixedPoints">0</span></div>
+                <div>Fixed GAs: <span id="fixedGas">0</span></div>
+            </div>
+            <div class="row">
+                <button onclick="updateFixed(this,25, 0)">@Home 290<span class="click-count">0</span></button>
+                <button onclick="updateFixed(this,45, 0)">@Home 520<span class="click-count">0</span></button>
+                <button onclick="updateFixed(this,72, 0)">@Home 830<span class="click-count">0</span></button>
+            </div>
+            <div class="row">
+                <button onclick="updateFixed(this,110, 0)">@Home 1270<span class="click-count">0</span></button>
+                <button onclick="updateFixed(this,50, 0)">ADSL on RED<span class="click-count">0</span></button>
+                <button id="GAsBtn" onclick="updateFixed(this,0, 1)">ADSL GAs<span class="click-count">0</span></button>
+            </div>
+            <div class="Connectivity-Devices">
+                <label for="connectivity">Connectivity Devices:</label>
+                <input type="number" id="connectivity" placeholder="insert price"
+                    onchange="addConnectivityPoints(this)">
+            </div>
+        </div>
+    </div>
+
+    <!-- New Terminal Section -->
+    <div class="accordion">
+        <button id="newBtn" class="accordion-button" onclick="toggleAccordion(this)">
+            Terminal <span class="arrow">▼</span>
+        </button>
+        <div class="accordion-content">
+            <div class="terminal-input-group">
+                <input type="number" id="ter-Price" placeholder="Insert Price" onchange="calculateTerminalPoints()">
+
+                <div class="terminal-radio-group">
+                    <!-- <label class="terminal-radio-item">
+                        <input type="radio" name="terminalType" value="basic" onchange="calculateTerminalPoints()">
+                        <span class="terminal-radio-label">Basic</span>
+                        <span class="terminal-radio-description">Power banks, Cables, Hearables, chargers</span>
+                    </label>
+                    <label class="terminal-radio-item">
+                        <input type="radio" name="terminalType" value="feature" onchange="calculateTerminalPoints()">
+                        <span class="terminal-radio-label">Feature</span>
+                        <span class="terminal-radio-description">TWS, Wearable, PS5, Gaming</span>
+                    </label> -->
+                    <label class="terminal-radio-item">
+                        <input type="radio" name="terminalType" value="essential" onchange="calculateTerminalPoints()"
+                            checked hidden>
+                        <!-- <span class="terminal-radio-label" style="display: none;">Essential</span> -->
+                        <!-- <span class="terminal-radio-description" style="display: none;">All </span> -->
+                    </label>
+                </div>
+
+                <div class="terminal-results">
+                    <div class="terminal-result-box">
+                        <label>Points</label>
+                        <input type="number" id="ter-Point" readonly>
+                    </div>
+                    <div class="terminal-result-box">
+                        <label>Total</label>
+                        <input type="number" id="ter-sumAll" readonly>
+                    </div>
+                </div>
+
+                <button id="addNewItem" onclick="addTerminalItem()">+</button>
+            </div>
+        </div>
+    </div>
+
+    <button id="reset" onclick="resetValues()">Reset</button>
+    <!-- <button id="reset" onclick="resetValues()">Reset</button> -->
+    <a href="myrpm.html"><button id="myrpm" >MY RPM</button></a>
+    <button class="credit">
+        
+        <img src="le3baguide.png" alt="Alex Lageteeh Le3ba" width="100%"
+            height="100%">
+            <!-- <p>By. <span>Mohamed Ouf</span> <br> Alex Lageteeh Store </p> -->
+    </button>
+
+    <script>
+
+        function formatDate(date) {
+            const options = { day: "2-digit", month: "short", year: "numeric" };
+            return date.toLocaleDateString("en-GB", options).replace(/ /g, "-");
+        }
+
+        const today = new Date();
+        document.getElementById("date-display").textContent = formatDate(today);
+
+        let totalPoints = 0;
+        let totalPrice = 0;
+        let totalGas = 0;
+        let epPoints = 0;
+        let epGas = 0;
+        let fixedPoints = 0;
+        let fixedGas = 0;
+        let terminalTotalPoints = 0;
+        let inputVal = 0;
+
+
+
+        function toggleAccordion(button) {
+            button.classList.toggle("active");
+            const content = button.nextElementSibling;
+            content.style.display = content.style.display === "flex" ? "none" : "flex";
+        }
+
+        let vfCashLocked = false; // new flag
+
+        function updateValues(button, points, price, gas) {
+            // === Prevent clicking VF-Cash when locked ===
+            if (vfCashLocked && button.id === "vfCashBtn") {
+                return; // ignore clicks until unlocked
+            }
+
+            // update totals
+            totalPoints += points;
+            totalPrice += price;
+            totalGas += gas;
+            document.getElementById("points").textContent = totalPoints;
+            document.getElementById("price").textContent = totalPrice;
+            document.getElementById("gas").textContent = totalGas;
+
+            // increment click counter
+            button.classList.add("clicked");
+            const countSpan = button.querySelector(".click-count");
+            let currentCount = parseInt(countSpan.textContent) || 0;
+            countSpan.textContent = currentCount + 1;
+
+            // === VF-Cash vs Flex logic ===
+            const vfCashButton = document.getElementById("vfCashBtn");
+
+            // get all Flex buttons
+            const flexButtons = Array.from(document.querySelectorAll(".accordion-content button"))
+                .filter(b => b.innerText.startsWith("Flex"));
+
+            // total Flex clicks
+            const totalFlexClicks = flexButtons.reduce((sum, b) => {
+                const span = b.querySelector(".click-count");
+                return sum + (span ? parseInt(span.textContent) || 0 : 0);
+            }, 0);
+
+            // VF-Cash clicks
+            const vfSpan = vfCashButton.querySelector(".click-count");
+            const vfCashClicks = vfSpan ? parseInt(vfSpan.textContent) || 0 : 0;
+
+            // Apply styles and lock/unlock logic
+            if (vfCashClicks === totalFlexClicks && totalFlexClicks > 0) {
+                vfCashButton.style.backgroundColor = "red";
+                vfCashButton.style.color = "white";
+                vfCashLocked = true; // lock
+            } else {
+                vfCashButton.style.backgroundColor = "lightyellow";
+                vfCashButton.style.color = "black";
+                vfCashLocked = false; // unlock if Flex increases
+            }
+        }
+        function updateEp(button, epPts, epG) {
+            epPoints += epPts;
+            epGas += epG;
+            document.getElementById("epPoints").textContent = epPoints;
+            document.getElementById("epGas").textContent = epGas;
+
+            button.classList.add("clicked");
+            const countSpan = button.querySelector(".click-count");
+            let currentCount = parseInt(countSpan.textContent) || 0;
+            countSpan.textContent = currentCount + 1;
+        }
+
+        function updateFixed(button, points, dslGas) {
+            fixedPoints += points;
+            fixedGas += dslGas;
+            document.getElementById("fixedPoints").textContent = fixedPoints;
+            document.getElementById("fixedGas").textContent = fixedGas;
+
+            button.classList.add("clicked");
+            const countSpan = button.querySelector(".click-count");
+            let currentCount = parseInt(countSpan.textContent) || 0;
+            countSpan.textContent = currentCount + 1;
+        }
+
+        function addConnectivityPoints(input) {
+            const val = parseFloat(input.value);
+            if (!isNaN(val)) {
+                const addedPoints = Math.floor(val / 100);
+                fixedPoints += addedPoints;
+                document.getElementById("fixedPoints").textContent = fixedPoints;
+            }
+        }
+
+        function calculateTerminalPoints() {
+            const priceInput = document.getElementById("ter-Price");
+            const pointsOutput = document.getElementById("ter-Point");
+            const price = parseFloat(priceInput.value);
+
+            if (isNaN(price)) {
+                pointsOutput.value = "";
+                return;
+            }
+
+            const baseValue = price / 1.14;
+            let points = 0;
+            const selectedType = document.querySelector('input[name="terminalType"]:checked');
+
+            if (!selectedType) {
+                points = Math.floor(baseValue / 100);
+            } else {
+                switch (selectedType.value) {
+                    case "basic":
+                        points = Math.floor((baseValue / 100) * 4);
+                        break;
+                    case "feature":
+                        points = Math.floor((baseValue / 100) * 2);
+                        break;
+                    case "essential":
+                        points = Math.floor(baseValue);
+                        break;
+                }
+            }
+
+            pointsOutput.value = points;
+        }
+
+        function addTerminalItem() {
+            const pointsInput = document.getElementById("ter-Point");
+            const points = parseFloat(pointsInput.value);
+
+            if (!isNaN(points) && points > 0) {
+                terminalTotalPoints += points;
+                document.getElementById("ter-sumAll").value = terminalTotalPoints;
+                totalPoints += points;
+                // document.getElementById("points").textContent = totalPoints;
+
+                // Reset the form
+                document.getElementById("ter-Price").value = "";
+                document.getElementById("ter-Point").value = "";
+                const radios = document.querySelectorAll('input[name="terminalType"]');
+                radios.forEach(radio => radio.checked = false);
+            }
+        }
+
+        function resetValues() {
+            totalPoints = 0;
+            totalPrice = 0;
+            totalGas = 0;
+            epPoints = 0;
+            epGas = 0;
+            fixedPoints = 0;
+            fixedGas = 0;
+            terminalTotalPoints = 0;
+            inputVal = 0;
+
+            document.getElementById("points").textContent = totalPoints;
+            document.getElementById("price").textContent = totalPrice;
+            document.getElementById("gas").textContent = totalGas;
+            document.getElementById("epPoints").textContent = epPoints;
+            document.getElementById("epGas").textContent = epGas;
+            document.getElementById("fixedPoints").textContent = fixedPoints;
+            document.getElementById("fixedGas").textContent = fixedGas;
+            document.getElementById("connectivity").value = inputVal;
+
+            // Reset Terminal section
+            document.getElementById("ter-Price").value = "";
+            document.getElementById("ter-Point").value = "";
+            document.getElementById("ter-sumAll").value = "";
+            const terminalRadios = document.querySelectorAll('input[name="terminalType"]');
+            terminalRadios.forEach(radio => radio.checked = true);
+
+            // Reset all clicked buttons and counters
+            const clickedButtons = document.querySelectorAll(".accordion-content button.clicked");
+            clickedButtons.forEach(btn => {
+                if (btn.classList) btn.classList.remove("clicked");
+                const parent = btn.closest('button');
+                if (parent) {
+                    const countSpan = parent.querySelector(".click-count");
+                    if (countSpan) countSpan.textContent = "0";
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const connectivityInput = document.getElementById("connectivity");
+            const fixedPointsSpan = document.getElementById("fixedPoints");
+
+            connectivityInput.addEventListener("keydown", function (event) {
+                if (event.key === "Enter") {
+                    event.preventDefault();
+                    const val = parseFloat(this.value);
+                    if (!isNaN(val)) {
+                        const addedPoints = Math.floor(val / 100);
+                        fixedPoints += addedPoints;
+                        fixedPointsSpan.textContent = fixedPoints;
+
+                        fixedPointsSpan.classList.add("highlight");
+                        setTimeout(() => fixedPointsSpan.classList.remove("highlight"), 500);
+                    }
+                    this.value = "";
+                }
+            });
+        });
+    </script>
+    <!-- 100% privacy-first analytics -->
+    <script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XY0DRER36T"></script>
+
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-XY0DRER36T');
+
+        // change VF-Cash button if equal to flex hits 
+        countSpan.textContent = currentCount + 1;
+        // Check Flex vs VF-Cash click counts
+        const flexButtons = Array.from(document.querySelectorAll('.accordion-content button')).filter(b => b.textContent.includes('Flex'));
+        const vfCashButton = Array.from(document.querySelectorAll('.accordion-content button')).find(b => b.textContent.includes('VF-Cash'));
+
+        const totalFlexClicks = flexButtons.reduce((sum, b) => {
+            const c = parseInt(b.querySelector('.click-count').textContent) || 0;
+            return sum + c;
+        }, 0);
+
+        const vfCashClicks = parseInt(vfCashButton.querySelector('.click-count').textContent) || 0;
+
+        if (vfCashClicks === totalFlexClicks && totalFlexClicks > 0) {
+            vfCashButton.style.backgroundColor = 'red';
+            vfCashButton.style.color = 'white';
+        } else {
+            vfCashButton.style.backgroundColor = 'lightyellow';
+            vfCashButton.style.color = 'black';
+        }
+
+
+
+    </script>
+</body>
+
+</html>

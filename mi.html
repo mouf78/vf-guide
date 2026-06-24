@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta name="description"
+            content="Retail Guide helps Vodafone Egypt retail employees with plans, calculators, TNPS tools and daily work utilities.">
+        <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://vf-guide.com/">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-65E77S47XB"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-65E77S47XB');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4721971253728612"
+        crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Source+Serif+Pro:wght@400;600&display=swap"
+        rel="stylesheet">
+    <title>MI Products</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #3b82f6;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --light-gray: #e2e8f0;
+            --accent: #10b981;
+            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+            --gradient: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            color: var(--dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 40px auto 20px;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+        }
+
+        .title {
+            font-family: 'Source Serif Pro', serif;
+            color: var(--primary);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            width: 100%;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            height: 200px;
+            /* Compact height as requested */
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 20px -5px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-header {
+            background: var(--gradient);
+            color: white;
+            padding: 12px;
+            text-align: center;
+        }
+
+        .card-title {
+            font-family: 'Source Serif Pro', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        .card-body {
+            padding: 15px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .card-info {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: var(--gray);
+            margin-right: 8px;
+            min-width: 50px;
+        }
+
+        .info-value {
+            color: var(--dark);
+            font-weight: 600;
+        }
+
+        .price {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .code {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        /* Animation for cards */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card {
+            animation: fadeIn 0.5s ease-out forwards;
+            opacity: 0;
+        }
+
+        .card:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .card:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .card:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        .card:nth-child(5) {
+            animation-delay: 0.5s;
+        }
+
+        .card:nth-child(6) {
+            animation-delay: 0.6s;
+        }
+
+        .card:nth-child(7) {
+            animation-delay: 0.7s;
+        }
+
+        .card:nth-child(8) {
+            animation-delay: 0.8s;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .card-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+
+            .title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .card {
+                height: auto;
+                min-height: 180px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <a href="index.html" class="back-button">
+            <i class="fas fa-arrow-left"></i>
+            Back to Home
+        </a>
+        <header>
+            <h1 class="title">MI Plus Bundle</h1>
+            <p class="subtitle">Explore our range of MI products with competitive pricing</p>
+        </header>
+
+        <div class="card-grid">
+            <!-- Card 1 -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">VF Plus 10.5 LE</h2>
+                </div>
+                <div class="card-body">
+                    <div class="card-info">
+                        <span class="info-label">Price after VAT:</span>
+                        <span class="info-value price">15 EGP</span>
+                    </div>
+                    <div class="card-info">
+                        <span class="info-label">Mega:</span>
+                        <span class="info-value price">250 MB</span>
+                    </div>
+                    <div class="card-info">
+                        <span class="info-label">Code:</span>
+                        <span class="info-value code">Ana Vodafone</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">VF Plus 23 LE</h2>
+                </div>
+                <div class="card-body">
+                    <div class="card-info">
+                        <span class="info-label">Price after VAT:</span>
+                        <span class="info-value price">33 EGP</span>
+                    </div>
+                    <div class="card-info">
+                        <span class="info-label">Mega:</span>
+                        <span class="info-value price">750 MB</span>
+                    </div>
+                    <div class="card-info">
+                        <span class="info-label">Code:</span>
+                        <span class="info-value code">Ana Vodafone</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">VF Plus 37 LE</h2>
+                </div>
+                <div class="card-body">
+                    <div class="card-info">
+                        <span class="info-label">Price after VAT:</span>
+                        <span class="info-value price">53 EGP</span>
+                    </div>
+                    <div class="card-info">
+                        <span class="info-label">Mega:</span>
+                        <span class="info-value price">1400 MB</span>
+                    </div>
+                    <div class="card-info">
+                        <span class="info-label">Code:</span>
+                        <span class="info-value code">*2000*37#</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">VF Plus 52 LE</h2>
+                </div>
+                <div class="card-body">
+                    <div class="card-info">
+                        <span class="info-label">Price after VAT:</span>
+                        <span class="info-value price">75 EGP</span>
+                    </div>
+                    <div class="card-info">
+                        <span class="info-label">Mega:</span>
+                        <span class="info-value price">2250 MB</span>
+                    </div>
+                    <div class="card-info">
+                        <span class="info-label">Code:</span>
+                        <span class="info-value code">Ana Vodafone</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">VF Plus 69 LE</h2>
+                </div>
+                <div class="card-body">
+                    <div class="card-info">
+                        <span class="info-label">Price after VAT:</span>
+                        <span class="info-value price">99 EGP</span>
+                    </div>
+                    <div class="card-info">
+                        <span class="info-label">Mega:</span>
+                        <span class="info-value price">3000 MB</span>
+                    </div>
+                    <div class="card-info">
+                        <span class="info-label">Code:</span>
+                        <span class="info-value code">*2000*69#</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">VF Plus 98 LE</h2>
+                </div>
+                <div class="card-body">
+                    <div class="card-info">
+                        <span class="info-label">Price after VAT:</span>
+                        <span class="info-value price">141 EGP</span>
+                    </div>
+                    <div class="card-info">
+                        <span class="info-label">Mega:</span>
+                        <span class="info-value price">4750 MB</span>
+                    </div>
+                    <div class="card-info">
+                        <span class="info-label">Code:</span>
+                        <span class="info-value code">*2000*98#</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 7 -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">VF Plus 120 LE</h2>
+                </div>
+                <div class="card-body">
+                    <div class="card-info">
+                        <span class="info-label">Price after VAT:</span>
+                        <span class="info-value price">172 EGP</span>
+                    </div>
+                    <div class="card-info">
+                        <span class="info-label">Mega:</span>
+                        <span class="info-value price">6000 MB</span>
+                    </div>
+                    <div class="card-info">
+                        <span class="info-label">Code:</span>
+                        <span class="info-value code">*2000*120#</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 8 -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">VF Plus 180 LE</h2>
+                </div>
+                <div class="card-body">
+                    <div class="card-info">
+                        <span class="info-label">Price after VAT:</span>
+                        <span class="info-value price">258 EGP</span>
+                    </div>
+                    <div class="card-info">
+                        <span class="info-label">Mega:</span>
+                        <span class="info-value price">10000 MB</span>
+                    </div>
+                    <div class="card-info">
+                        <span class="info-label">Code:</span>
+                        <span class="info-value code">*2000*180#</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 9 -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">VF Plus 300 LE</h2>
+                </div>
+                <div class="card-body">
+                    <div class="card-info">
+                        <span class="info-label">Price after VAT:</span>
+                        <span class="info-value price">430 EGP</span>
+                    </div>
+                    <div class="card-info">
+                        <span class="info-label">Mega:</span>
+                        <span class="info-value price">18000 MB</span>
+                    </div>
+                    <div class="card-info">
+                        <span class="info-label">Code:</span>
+                        <span class="info-value code">*2000*300#</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 10 -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">VF Plus 450 LE</h2>
+                </div>
+                <div class="card-body">
+                    <div class="card-info">
+                        <span class="info-label">Price after VAT:</span>
+                        <span class="info-value price">644 EGP</span>
+                    </div>
+                    <div class="card-info">
+                        <span class="info-label">Mega:</span>
+                        <span class="info-value price">29000 MB</span>
+                    </div>
+                    <div class="card-info">
+                        <span class="info-label">Code:</span>
+                        <span class="info-value code">*2000*450#</span>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Card 11 -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">VF Plus 600 LE</h2>
+                </div>
+                <div class="card-body">
+                    <div class="card-info">
+                        <span class="info-label">Price after VAT:</span>
+                        <span class="info-value price">858 EGP</span>
+                    </div>
+                    <div class="card-info">
+                        <span class="info-label">Mega:</span>
+                        <span class="info-value price">45000 MB</span>
+                    </div>
+                    <div class="card-info">
+                        <span class="info-label">Code:</span>
+                        <span class="info-value code">*2000*600#</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Simple animation for page load
+            document.body.classList.add('loaded');
+        });
+    </script>
+</body>
+
+</html>
